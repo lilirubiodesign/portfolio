@@ -21,6 +21,7 @@
   height: auto;
   aspect-ratio: 440 / 360;
   object-fit: cover;
+  border: 1px solid var(--border-default);
   border-radius: var(--corner-radius-lg);
   background: var(--bg-frame);
 }
