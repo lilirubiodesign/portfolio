@@ -205,3 +205,10 @@
   .project-card__media { order: 0; flex: 1 1 auto; min-width: 0; }
   .project-card .browser-frame__screen { aspect-ratio: 672 / 400; }
 }
+
+/* Botones a partes iguales en móvil: margen interior menor para que la etiqueta no se parta */
+.button { white-space: nowrap; }
+@media (max-width: 959px) {
+  .hero__actions .button,
+  .about-intro__actions .button { padding-inline: var(--spacing-inset-md); }
+}

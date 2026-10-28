@@ -1,0 +1,101 @@
+/* Sobre mí (hi-fi `sobre-mi-desktop` / `sobre-mi-mobile`) */
+
+/* Fila cabecera + contenido: apilada en móvil, 440 + 680 en desktop */
+.split { display: flex; flex-direction: column; gap: var(--spacing-section-sm); }
+.split__head { display: flex; flex-direction: column; gap: var(--spacing-stack-sm); }
+@media (min-width: 960px) {
+  .split { flex-direction: row; gap: var(--space-900); }
+  .split__head { flex: 0 0 440px; }
+  .split__body { flex: 1 1 0; min-width: 0; }
+}
+
+/* ── Intro ── */
+.about-intro { display: flex; flex-direction: column; gap: var(--spacing-section-md); }
+.about-intro__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-stack-lg); }
+.about-intro__lead { color: var(--text-body); }
+.about-intro__note { color: var(--text-muted); }
+.about-intro__actions { display: flex; gap: var(--spacing-inline-md); width: 100%; }
+.about-intro__actions .button { flex: 1 1 0; }
+.about-intro__portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 440 / 360;
+  object-fit: cover;
+  border-radius: var(--corner-radius-lg);
+  background: var(--bg-frame);
+}
+@media (min-width: 960px) {
+  .about-intro { flex-direction: row; align-items: center; gap: var(--space-900); }
+  .about-intro__text { flex: 1 1 0; }
+  .about-intro__actions { width: auto; }
+  .about-intro__actions .button { flex: none; }
+  .about-intro__portrait { flex: 0 0 440px; }
+}
+
+/* ── Lo que traigo de recursos humanos ── */
+.hr { display: flex; flex-direction: column; gap: var(--spacing-section-sm); }
+.hr__intro { color: var(--text-body); }
+.contributions { list-style: none; margin: 0; padding: 0; }
+.contribution {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-stack-xs);
+  padding-block: var(--spacing-inset-lg);
+}
+.contribution__number { color: var(--text-muted); }
+.contribution__title { color: var(--text-body); }
+.contribution__text { color: var(--text-body); }
+@media (min-width: 960px) {
+  .hr { gap: 40px; } /* fuera de escala, como en Figma */
+  .contribution { flex-direction: row; gap: 40px; padding-block: 36px; }
+  .contribution__number { flex: 0 0 40px; }
+  .contribution__title { flex: 0 0 400px; }
+  .contribution__text { flex: 1 1 0; }
+}
+
+/* ── Trayectoria ── */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline__item { display: flex; gap: var(--spacing-inline-md); }
+.timeline__item + .timeline__item { padding-top: var(--spacing-stack-xl); }
+.timeline__dot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+.timeline__item--current .timeline__dot { background: var(--bg-inverse); }
+.timeline__body { display: flex; flex-direction: column; gap: 4px; }
+.timeline__date { color: var(--text-muted); }
+.timeline__title { color: var(--text-muted); }
+.timeline__item--current .timeline__title { color: var(--text-primary); }
+.timeline__text { color: var(--text-body); }
+.timeline__award { display: flex; align-items: center; gap: 4px; padding-top: 4px; color: var(--text-body); }
+.timeline__award svg { width: 10px; height: 10px; fill: currentColor; flex: none; }
+
+/* ── Lo que me recarga ── */
+.gradient-underline {
+  background-image: linear-gradient(90deg, var(--color-accent-green), var(--color-accent-lavender), var(--color-accent-orange));
+  background-repeat: no-repeat;
+  background-size: 100% 0.32em;
+  background-position: 0 88%;
+}
+.recharge { display: flex; flex-direction: column; gap: var(--spacing-stack-xl); }
+.recharge__text { color: var(--text-body); }
+.stickers { display: flex; flex-wrap: wrap; gap: var(--spacing-inline-sm); list-style: none; margin: 0; padding: 0; }
+.sticker {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  background:
+    linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
+    linear-gradient(135deg, var(--from), var(--to)) border-box;
+}
+.sticker svg { width: 28px; height: 28px; fill: var(--text-primary); }
+.sticker--gl { --from: var(--color-accent-green); --to: var(--color-accent-lavender); }
+.sticker--lo { --from: var(--color-accent-lavender); --to: var(--color-accent-orange); }
+.sticker--og { --from: var(--color-accent-orange); --to: var(--color-accent-green); }
