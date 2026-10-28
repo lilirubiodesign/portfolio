@@ -17,22 +17,19 @@
 .hero__lead { color: var(--text-body); }
 .hero__actions { display: flex; gap: var(--spacing-inline-md); width: 100%; }
 .hero__actions .button { flex: 1 1 0; }
-.hero__visual {
-  width: 100%;
-  aspect-ratio: 358 / 532;
-  border: 1.5px dashed var(--border-strong);
-  border-radius: var(--corner-radius-lg);
-  display: grid;
-  place-items: center;
-  color: var(--text-muted);
-}
+/* Visual B5: el tablero va a tamaño real (estilos en hero-visual.css) */
+.hero__visual { width: 100%; max-width: 358px; }
 
+/* Texto y tablero en fila solo cuando caben los 560 px del tablero junto al texto */
 @media (min-width: 960px) {
-  .hero__content { flex-direction: row; align-items: center; gap: var(--space-900); }
-  .hero__text { flex: 1 1 0; }
+  .hero__visual { max-width: none; }
   .hero__actions { width: auto; }
   .hero__actions .button { flex: none; }
-  .hero__visual { flex: 0 0 560px; aspect-ratio: 1 / 1; }
+}
+@media (min-width: 1200px) {
+  .hero__content { flex-direction: row; align-items: center; gap: var(--space-900); }
+  .hero__text { flex: 1 1 0; }
+  .hero__visual { flex: 0 0 560px; }
 }
 
 /* ── Trabajo ── */

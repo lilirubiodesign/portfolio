@@ -57,3 +57,32 @@ if (lightbox && typeof lightbox.showModal === "function") {
   // Sin <dialog>: las capturas no se amplían, pero se ven igual.
   document.querySelectorAll("[data-zoom]").forEach((b) => { b.style.cursor = "default"; });
 }
+
+// Visual del hero (B5): se ordena solo a los 0,9 s de entrar en pantalla y se queda ordenado.
+// Un clic o toque en el tablero (o el botón, con teclado) alterna entre ordenado y desordenado.
+// Con «reducir movimiento», aparece ya ordenado y sin transiciones.
+document.querySelectorAll("[data-hero-board]").forEach((board) => {
+  const label = board.querySelector(".hv-toggle__label");
+  const set = (on) => {
+    board.classList.toggle("is-on", on);
+    if (label) label.textContent = on ? "Desordenar" : "Ordenar";
+  };
+  let timer = null;
+  let touched = false;
+  board.addEventListener("click", () => {
+    touched = true;
+    clearTimeout(timer);
+    set(!board.classList.contains("is-on"));
+  });
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { set(true); return; }
+  if (!("IntersectionObserver" in window)) { timer = setTimeout(() => set(true), 900); return; }
+  const io = new IntersectionObserver((entries) => {
+    // Solo cuenta el tablero visible (el de desktop o el de móvil, según el ancho)
+    if (!entries.some((e) => e.isIntersecting && e.intersectionRatio >= 0.35)) return;
+    io.disconnect();
+    if (!touched) timer = setTimeout(() => set(true), 900);
+  }, { threshold: [0.35] });
+  io.observe(board);
+});
