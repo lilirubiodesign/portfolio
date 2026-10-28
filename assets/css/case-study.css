@@ -1,0 +1,351 @@
+/*
+  Case study (hi-fi `case-study-desktop` 4381:6655 / `case-study-mobile` 4465:10001).
+  Móvil por defecto; desktop desde 960 px, como tokens.css.
+  Ritmo: banda → primera idea 48 / 80 · entre ideas 64 / 96 · titular → visual 32.
+*/
+
+.cs-muted { color: var(--text-muted); }
+.h4 { color: var(--text-primary); }
+strong { font-weight: 600; }
+
+/* ── Portada ── */
+.cs-cover { padding-block: var(--spacing-section-md); }
+.cs-cover__content { display: flex; flex-direction: column; gap: var(--spacing-stack-lg); }
+.cs-cover__title { max-width: 900px; }
+.cs-cover__lead { max-width: 760px; color: var(--text-body); }
+
+.cs-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-stack-lg) var(--spacing-inline-md);
+  margin: 0;
+  padding-top: var(--spacing-stack-lg);
+}
+.cs-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: var(--spacing-inset-md);
+  border-top: 1px solid var(--border-default);
+}
+.cs-meta dt { color: var(--text-muted); }
+.cs-meta dd { margin: 0; color: var(--text-primary); }
+.cs-cover__visual { padding-top: var(--space-600); }
+
+/* ── Resumen ── */
+.cs-summary { padding-bottom: var(--spacing-section-lg); }
+.cs-summary__grid { display: flex; flex-direction: column; gap: var(--space-600); }
+.cs-summary__item { display: flex; flex-direction: column; gap: var(--spacing-stack-sm); }
+
+/* ── Banda de título (única separación entre bloques) ── */
+.cs-band { background: var(--bg-frame); }
+.cs-band__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-600);
+  padding-block: var(--spacing-section-md);
+}
+.cs-band__title { display: flex; flex-direction: column; gap: var(--spacing-stack-xs); }
+.cs-band__kicker { display: flex; align-items: baseline; gap: var(--spacing-inline-md); color: var(--text-primary); }
+.cs-band__text { color: var(--text-body); }
+
+/* ── Contenido del bloque ── */
+.cs-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-section-lg);
+  padding-top: var(--spacing-section-md);
+  padding-bottom: var(--spacing-section-lg);
+}
+.cs-idea { display: flex; flex-direction: column; gap: var(--space-600); }
+.cs-idea__head { display: flex; flex-direction: column; gap: var(--spacing-stack-xs); max-width: 720px; }
+.cs-idea__head--wide { max-width: 820px; }
+
+/* ── Capturas: se escalan enteras; al tocarlas se amplían ── */
+.shot { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.shot .caption,
+.cs-gallery-wrap .caption { color: var(--text-muted); }
+.shot__zoom {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: zoom-in;
+  border-radius: var(--corner-radius-md);
+}
+.shot__zoom img { width: 100%; height: auto; }
+.shot__zoom:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 4px; }
+.shot--card .shot__zoom img { width: 90.68%; } /* card de 389 dentro del visual anotado de 429 */
+
+/* Numerador lavanda: 24 px siempre, también cuando la captura se escala */
+.marker {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--bg-brand);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: var(--type-label-sm-size);
+  line-height: var(--type-label-sm-lh);
+  pointer-events: none;
+}
+.marker--static { position: static; flex: none; }
+
+/* ── Notas ── */
+.notes { display: flex; flex-direction: column; gap: var(--spacing-section-sm); list-style: none; margin: 0; padding: 0; }
+.note { display: flex; gap: var(--spacing-inline-sm); align-items: flex-start; }
+.note__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; color: var(--text-body); }
+.note__title { color: var(--text-primary); }
+.note__heuristic { margin-top: 6px; }
+.compare { display: flex; flex-direction: column; gap: 6px; }
+.compare__label { color: var(--text-muted); }
+.compare__label--new { color: var(--text-primary); padding-top: 18px; }
+
+/* Visual + notas: apilados en móvil, en columnas en desktop */
+.cs-annotated { display: flex; flex-direction: column; gap: var(--space-600); }
+
+/* ── 01 · Ecosistema ── */
+.ecosystem { display: flex; flex-direction: column; list-style: none; margin: 0; padding: 0; }
+.ecosystem__node {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--corner-radius-md);
+  background: var(--bg-surface);
+}
+.ecosystem__node p { color: var(--text-muted); }
+.ecosystem__node--focus { border-color: var(--border-strong); }
+.ecosystem__link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-inline-sm);
+  height: 56px;
+  padding-left: 32px;
+  color: var(--text-body);
+}
+/* Flecha: línea de 1,5 px con punta */
+.ecosystem__arrow { position: relative; flex: none; width: 0; height: 32px; border-left: 1.5px solid var(--border-strong); }
+.ecosystem__arrow::after {
+  content: "";
+  position: absolute;
+  left: -5.5px;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--border-strong);
+  border-bottom: 1.5px solid var(--border-strong);
+  transform: rotate(45deg);
+}
+/* «consultan» va de Jugadores a la web: hacia arriba en móvil, hacia la izquierda en desktop */
+.ecosystem__link--back .ecosystem__arrow::after { top: 0; bottom: auto; transform: rotate(-135deg); }
+
+/* ── Galerías (estados, fases, pasos) ── */
+.cs-gallery-wrap { display: flex; flex-direction: column; gap: var(--spacing-inline-md); }
+.cs-gallery { display: grid; list-style: none; margin: 0; padding: 0; }
+.cs-gallery li { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.cs-gallery--states { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-stack-lg) var(--spacing-inline-md); }
+.cs-gallery--pair { grid-template-columns: minmax(0, 1fr); gap: var(--spacing-stack-lg); }
+.cs-gallery--pair li { gap: 10px; }
+
+/* ── 06 · Pantallas ── */
+.cs-devices { display: flex; flex-direction: column; gap: var(--spacing-section-sm); }
+.cs-devices__mobile { width: 100%; max-width: 300px; margin-inline: auto; }
+.cs-notes-groups { display: flex; flex-direction: column; gap: var(--spacing-section-sm); padding-top: var(--spacing-stack-lg); }
+.cs-notes-group { display: flex; flex-direction: column; gap: var(--spacing-stack-lg); }
+.cs-notes-group h4 { color: var(--text-primary); }
+
+/* ── 08 · Cadena de variables ── */
+.cs-chain-wrap { display: flex; flex-direction: column; gap: var(--spacing-stack-lg); }
+.chain { display: flex; flex-direction: column; align-items: stretch; list-style: none; margin: 0; padding: 0; }
+.chain__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-stack-sm);
+  padding: 20px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--corner-radius-md);
+  background: var(--bg-surface);
+}
+.chain__arrow { position: relative; align-self: center; width: 0; height: 40px; margin-block: 4px; border-left: 1.5px solid var(--border-strong); }
+.chain__arrow::after {
+  content: "";
+  position: absolute;
+  left: -5.5px;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--border-strong);
+  border-bottom: 1.5px solid var(--border-strong);
+  transform: rotate(45deg);
+}
+.tokens { display: flex; flex-direction: column; gap: var(--spacing-stack-sm); list-style: none; margin: 0; padding: 0; }
+.token {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--corner-radius-sm);
+  background: var(--bg-frame);
+}
+.token__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; color: var(--text-primary); overflow-wrap: anywhere; }
+.token__swatch { flex: none; width: 14px; height: 14px; border-radius: 4px; }
+.token__swatch--lime { background: #d4ff14; border: 1px solid #9fbf0f; }   /* colores reales de NextCaddy */
+.token__swatch--dark { background: #0d0d0d; }
+.token__swatch--space { border: 1px dashed var(--border-strong); }
+.chain__result { display: grid; place-items: center; min-height: 120px; }
+/* Botón principal de NextCaddy, con sus valores reales */
+.nc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px 16px;
+  border: 1px solid #9fbf0f;
+  border-radius: 4px;
+  background: #d4ff14;
+  color: #0d0d0d;
+  font-family: "Inter", var(--font-text);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+/* ── Cierre ── */
+.next-steps { display: grid; gap: var(--spacing-inline-md); list-style: none; margin: 0; padding: 0; }
+.next-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-stack-sm);
+  padding: var(--spacing-inset-lg);
+  border: 1px solid var(--border-default);
+  border-radius: var(--corner-radius-md);
+  background: var(--bg-surface);
+  color: var(--text-body);
+}
+.data-notes { display: grid; gap: var(--space-600); }
+.data-note { display: flex; flex-direction: column; gap: var(--spacing-stack-xs); color: var(--text-body); }
+.data-note h3 { color: var(--text-primary); }
+
+.quotes { display: grid; gap: var(--spacing-section-sm); }
+.quote { display: flex; flex-direction: column; gap: var(--space-600); margin: 0; }
+.quote__bubble { margin: 0; padding: var(--spacing-inset-lg); border: 1px solid var(--border-default); border-radius: var(--corner-radius-lg); color: var(--text-body); }
+.quote__author { display: flex; align-items: center; gap: 14px; }
+.quote__avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-inverse);
+  color: var(--text-on-inverse);
+}
+.quote__name { display: flex; flex-direction: column; gap: 2px; color: var(--text-body); }
+
+/* ── Ampliación de capturas ── */
+.lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 64px 16px 24px;
+  border: 0;
+  background: rgb(21 25 30 / 0.92);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.lightbox::backdrop { background: transparent; }
+.lightbox[open] { display: flex; }
+.lightbox__img { flex: none; margin: auto; max-width: none; height: auto; border-radius: var(--corner-radius-sm); background: var(--bg-surface); cursor: zoom-out; }
+.lightbox__close {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bg-inverse-raised);
+  color: var(--text-on-inverse);
+  cursor: pointer;
+}
+.lightbox__close:focus-visible { outline: 2px solid var(--text-on-inverse); outline-offset: 2px; }
+
+/* ── Desktop ── */
+@media (min-width: 960px) {
+  .cs-cover { padding-bottom: 56px; }
+  .cs-meta { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--spacing-inline-lg); }
+  .cs-cover__visual { padding-top: 56px; }
+
+  .cs-summary { padding-bottom: 120px; }
+  .cs-summary__grid { flex-direction: row; gap: var(--space-900); }
+  .cs-summary__item { flex: 1 1 0; }
+
+  .cs-band__inner { flex-direction: row; align-items: flex-end; gap: var(--space-900); }
+  .cs-band__title { flex: 0 0 440px; }
+  .cs-band__text { flex: 1 1 0; min-width: 0; }
+
+  .cs-content { padding-top: var(--space-900); }
+  .cs-idea { gap: var(--space-600); }
+
+  .notes { gap: var(--spacing-stack-2xl); }
+
+  /* 01 · ecosistema en fila */
+  .ecosystem { display: grid; grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr) 64px minmax(0, 1fr) 64px minmax(0, 1fr); gap: var(--spacing-inline-md); }
+  .ecosystem__node { min-height: 152px; }
+  .ecosystem__link { flex-direction: column; gap: 6px; height: auto; padding: 30px 0 0; }
+  .ecosystem__arrow { width: 64px; height: 0; border-left: 0; border-top: 1.5px solid var(--border-strong); }
+  .ecosystem__arrow::after { left: auto; right: 0; bottom: auto; top: -4.75px; transform: rotate(-45deg); }
+  .ecosystem__link--back .ecosystem__arrow::after { right: auto; left: 0; top: -4.75px; transform: rotate(135deg); }
+
+  /* 02 · Inicio anotado */
+  .cs-annotated--b02 { display: grid; grid-template-columns: minmax(0, 740fr) minmax(0, 420fr); gap: 40px; }
+  /* 03 · listado anotado */
+  .cs-annotated--b03 { display: grid; grid-template-columns: minmax(0, 720fr) minmax(0, 432fr); gap: var(--spacing-inline-2xl); }
+  .cs-annotated--b03 .notes { padding-top: 120px; }
+  /* 04 · card anotada */
+  .cs-annotated--b04 { display: grid; grid-template-columns: minmax(0, 429fr) minmax(0, 691fr); gap: var(--space-900); }
+
+  .cs-gallery--states { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-600) var(--spacing-inline-md); }
+  .cs-gallery--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-inline-lg) var(--spacing-inline-md); }
+
+  /* 06 */
+  .cs-devices { display: grid; grid-template-columns: minmax(0, 860fr) minmax(0, 300fr); align-items: start; gap: 40px; }
+  .cs-devices__desktop .shot__zoom { width: 94.19%; } /* navegador de 810 dentro de 860 */
+  .cs-devices__mobile { max-width: none; margin: 0; }
+  .cs-notes-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+  .cs-notes-group,
+  .cs-notes-group .notes { gap: 40px; }
+
+  /* 08 · cadena en fila */
+  .chain { flex-direction: row; align-items: center; gap: var(--spacing-inline-md); }
+  .chain__step { flex: 1 1 0; min-width: 0; align-self: stretch; min-height: 322px; }
+  .chain__arrow { width: 36px; height: 0; margin: 0; border-left: 0; border-top: 1.5px solid var(--border-strong); flex: none; }
+  .chain__arrow::after { left: auto; right: 0; bottom: auto; top: -4.75px; transform: rotate(-45deg); }
+  .chain__result { flex: 1 1 auto; }
+
+  .next-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .data-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-600) var(--space-900); }
+  .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-inline-lg); }
+  .quote__bubble { padding: var(--spacing-inset-xl); }
+  .quote--right .quote__author { flex-direction: row-reverse; text-align: right; }
+}
+
+/* Notas del 02 junto a su numerador, solo cuando hay ancho para no solaparse */
+@media (min-width: 1200px) {
+  .cs-annotated--b02 .notes { position: relative; display: block; }
+  .cs-annotated--b02 .note { position: absolute; top: var(--note-y); width: 370px; }
+}

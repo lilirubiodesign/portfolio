@@ -12,9 +12,10 @@ Portfolio de Lili Rubio · UX/UI y diseño de producto.
 ```
 index.html              Home
 sobre-mi/index.html     Sobre mí
+trabajo/nextcaddy/      Case study NextCaddy
 assets/css/             fonts · tokens · typography · base
 assets/fonts/           Bevellier y Switzer (.woff2, solo los pesos usados)
-assets/img/             imágenes optimizadas (WebP/AVIF)
+assets/img/             imágenes optimizadas (WebP 1x y @2x; capturas del case study en nextcaddy/)
 assets/js/              interacciones (hero, ampliar capturas, copiar correo)
 ```
 

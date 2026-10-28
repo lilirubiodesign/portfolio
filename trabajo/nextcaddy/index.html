@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NextCaddy · Arquitectura de información · Lili Rubio</title>
+    <meta name="description" content="Propuesta de rediseño de la web pública de NextCaddy: arquitectura de información, estados de interfaz, flujos y design system para encontrar un torneo, entender su estado e inscribirse." />
+    <link rel="canonical" href="https://lilirubio.es/trabajo/nextcaddy" />
+    <link rel="preload" href="/assets/fonts/Bevellier-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <link rel="stylesheet" href="/assets/css/tokens.css" />
+    <link rel="stylesheet" href="/assets/css/typography.css" />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/case-study.css" />
+    <script src="/assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <nav class="container nav-bar" aria-label="Principal">
+        <a class="nav-bar__logo" href="/" aria-label="Lili Rubio · Inicio">
+          <svg viewBox="0 0 44 48" aria-hidden="true"><rect width="12" height="48" rx="4.8" fill="currentColor"/><rect x="16.8" width="12" height="48" rx="4.8" fill="currentColor"/><rect x="43.2" width="12" height="26.4" rx="4.8" transform="rotate(90 43.2 0)" fill="currentColor"/></svg>
+        </a>
+        <ul class="nav-bar__items">
+          <li><a class="nav-item" href="/#trabajo" aria-current="page">Trabajo</a></li>
+          <li><a class="nav-item" href="/sobre-mi">Sobre mí</a></li>
+          <li><a class="nav-item" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <!-- Portada -->
+      <section class="cs-cover" aria-labelledby="cs-titulo">
+        <div class="container cs-cover__content">
+          <p class="eyebrow cs-muted">Propuesta de rediseño · NextCaddy</p>
+          <h1 id="cs-titulo" class="h1 cs-cover__title">Arquitectura de información para una plataforma de golf con mucho que contar</h1>
+          <p class="body-lead cs-cover__lead">Rediseñé la web pública de NextCaddy para hacer más fácil encontrar un torneo, entender su estado e inscribirse.</p>
+          <dl class="cs-meta">
+            <div><dt class="label-sm">Rol</dt><dd class="body-md">UX/UI Designer</dd></div>
+            <div><dt class="label-sm">Dónde y cuándo</dt><dd class="body-md">2026 · Green Slope</dd></div>
+            <div><dt class="label-sm">Feedback durante el proyecto</dt><dd class="body-md">CEO + CTO</dd></div>
+            <div><dt class="label-sm">Alcance</dt><dd class="body-md">Web pública desktop y móvil</dd></div>
+          </dl>
+          <figure class="shot cs-cover__visual">
+            <button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/portada@2x.webp">
+              <img src="/assets/img/nextcaddy/portada.webp" srcset="/assets/img/nextcaddy/portada.webp 1x, /assets/img/nextcaddy/portada@2x.webp 2x" width="1200" height="760" fetchpriority="high" alt="Listado de torneos propuesto en desktop y en móvil, con la pestaña Próximos activa, filtros y tarjetas de torneo." />
+            </button>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Resumen -->
+      <section class="cs-summary" aria-label="Resumen">
+        <div class="container cs-summary__grid">
+          <div class="cs-summary__item">
+            <h2 class="h4">El problema</h2>
+            <p class="body-md">NextCaddy reúne información, estados y casuísticas muy distintas. El reto era <strong>organizar esa complejidad</strong> para que encontrar la información relevante y entender qué ocurre en cada momento resultara más directo y consistente.</p>
+          </div>
+          <div class="cs-summary__item">
+            <h2 class="h4">La propuesta</h2>
+            <p class="body-md">Reorganicé la arquitectura de la web y convertí esa complejidad en <strong>recorridos, estados de interfaz y componentes reutilizables</strong>, manteniendo una lógica coherente entre torneos, momentos y dispositivos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01 · Arquitectura de información -->
+      <section class="cs-block" aria-labelledby="b01-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">01</span><span class="eyebrow cs-muted">Arquitectura de información</span></p>
+              <h2 id="b01-titulo" class="h2">Una web para jugadores, con un negocio detrás</h2>
+            </div>
+            <p class="body-md cs-band__text">Los clubes y federaciones publican sus torneos desde un backoffice y los jugadores los consultan en la web pública, donde <strong>casi todo vivía en la página de inicio</strong>. Los listados de torneos y clubes ya existían, pero se alcanzaban desde puntos concretos del recorrido; en la propuesta pasan a formar <strong>parte de la navegación principal</strong>.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head">
+              <h3 class="h3">Lo que publica el backoffice, lo ordena la web</h3>
+              <p class="body-md">El rediseño se centró en la web pública: cómo organiza la información que clubes y federaciones publican para los jugadores.</p>
+            </header>
+            <ol class="ecosystem" aria-label="Cómo circula la información">
+              <li class="ecosystem__node">
+                <h4 class="h4">Clubes y federaciones</h4>
+                <p class="body-sm">Contratan el servicio y gestionan sus torneos.</p>
+              </li>
+              <li class="ecosystem__link" aria-hidden="true"><span class="ecosystem__arrow"></span><span class="caption">publican</span></li>
+              <li class="ecosystem__node">
+                <h4 class="h4">Backoffice</h4>
+                <p class="body-sm">Torneos, inscripciones, horarios y resultados.</p>
+              </li>
+              <li class="ecosystem__link" aria-hidden="true"><span class="ecosystem__arrow"></span><span class="caption">alimenta</span></li>
+              <li class="ecosystem__node ecosystem__node--focus">
+                <h4 class="h4"><span class="highlight">Web pública</span></h4>
+                <p class="body-sm">Lo que se rediseñó.</p>
+              </li>
+              <li class="ecosystem__link ecosystem__link--back" aria-hidden="true"><span class="ecosystem__arrow"></span><span class="caption">consultan</span></li>
+              <li class="ecosystem__node">
+                <h4 class="h4">Jugadores</h4>
+                <p class="body-sm">Se inscriben y siguen resultados.</p>
+              </li>
+            </ol>
+            <p class="visually-hidden">Clubes y federaciones publican en el backoffice; el backoffice alimenta la web pública; los jugadores consultan la web pública.</p>
+          </article>
+
+          <article class="cs-idea">
+            <header class="cs-idea__head">
+              <h3 class="h3">De una página larga a recorridos más claros</h3>
+              <p class="body-md">La web analizada y la propuesta tienen listados de torneos y clubes; cambia el nivel en el que aparecen. En la propuesta están en el primer nivel, accesibles desde la navegación principal.</p>
+            </header>
+            <figure class="shot shot--plain">
+              <button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b01-niveles@2x.webp">
+                <img src="/assets/img/nextcaddy/b01-niveles.webp" srcset="/assets/img/nextcaddy/b01-niveles.webp 1x, /assets/img/nextcaddy/b01-niveles@2x.webp 2x" width="1200" height="792" loading="lazy" decoding="async" alt="Esquema por niveles de profundidad. Análisis: desde HOY se llega a torneos próximos y pasados, y desde Inicio a resultados en directo, ambos dentro de Inicio; de ahí a la ficha de torneo, y solo desde la ficha, en un tercer nivel, al listado de torneos, la ficha de club y el listado de clubes. Propuesta: TORNEOS y CLUBES en la barra llevan directamente a sus listados, en el primer nivel; las fichas de torneo y de club quedan en el segundo nivel y se enlazan entre sí." />
+              </button>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <!-- 02 · Organización de contenidos -->
+      <section class="cs-block" aria-labelledby="b02-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">02</span><span class="eyebrow cs-muted">Organización de contenidos</span></p>
+              <h2 id="b02-titulo" class="h2">Un Inicio con dos entradas</h2>
+            </div>
+            <p class="body-md cs-band__text">Inicio concentraba casi todo el contenido. Ahora distingue desde el primer momento entre <strong>quien contrata el servicio y quien juega</strong>, y lleva a cada uno a su recorrido.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head">
+              <h3 class="h3">Cada parte de Inicio lleva a un recorrido</h3>
+              <p class="body-md">La barra de navegación, las dos entradas y los resultados en directo ordenan la página según lo que busca cada usuario.</p>
+            </header>
+            <div class="cs-annotated cs-annotated--b02">
+              <figure class="shot">
+                <button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b02-inicio@2x.webp">
+                  <img src="/assets/img/nextcaddy/b02-inicio.webp" srcset="/assets/img/nextcaddy/b02-inicio.webp 1x, /assets/img/nextcaddy/b02-inicio@2x.webp 2x" width="740" height="914" loading="lazy" decoding="async" alt="Página de inicio propuesta: barra con Torneos, Clubes y Contacto; dos entradas, una para clubes y federaciones con el botón Solicitar una demo y otra para jugadores con Explorar torneos; cifras de NextCaddy y tres tarjetas de resultados en directo." />
+                  <span class="marker" style="--x:65.68%;--y:3.5%" aria-hidden="true">1</span>
+                  <span class="marker" style="--x:95.14%;--y:8.32%" aria-hidden="true">2</span>
+                  <span class="marker" style="--x:95.14%;--y:55.14%" aria-hidden="true">3</span>
+                </button>
+                <figcaption class="caption">Página de inicio propuesta, en desktop, con datos de ejemplo.</figcaption>
+              </figure>
+              <ol class="notes">
+                <li class="note" style="--note-y:0%">
+                  <span class="marker marker--static" aria-hidden="true">1</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Una barra con lo esencial</p>
+                    <p class="body-sm"><span class="ui-label">TORNEOS</span> y <span class="ui-label">CLUBES</span> llevan a sus páginas; <span class="ui-label">CONTACTO</span>, al formulario.</p>
+                  </div>
+                </li>
+                <li class="note" style="--note-y:14.44%">
+                  <span class="marker marker--static" aria-hidden="true">2</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Dos entradas, dos necesidades</p>
+                    <p class="body-sm">Inicio diferencia desde el primer momento a clubes y federaciones, que contratan el servicio, y jugadores, que lo utilizan. Una entrada lleva a solicitar una demo; la otra, a explorar torneos.</p>
+                  </div>
+                </li>
+                <li class="note" style="--note-y:55.14%">
+                  <span class="marker marker--static" aria-hidden="true">3</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Resultados en directo con contexto</p>
+                    <p class="body-sm">Los resultados en directo se mantienen en Inicio, pero con más contexto. Cada card indica estado, modalidad, clasificación y jornada, y abre esa misma clasificación en la ficha del torneo.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 03 · Navegación y filtros -->
+      <section class="cs-block" aria-labelledby="b03-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">03</span><span class="eyebrow cs-muted">Navegación y filtros</span></p>
+              <h2 id="b03-titulo" class="h2">Encontrar un torneo</h2>
+            </div>
+            <p class="body-md cs-band__text">Un jugador quiere explorar torneos e inscribirse, pero en la web analizada el buscador solo era útil si ya conocía el nombre. En la propuesta, <strong>puede acotar la búsqueda</strong> por fecha, federación y disponibilidad.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head cs-idea__head--wide">
+              <h3 class="h3">Un torneo se encuentra sin saber su nombre</h3>
+              <p class="body-md">Partí de un caso concreto: un jugador tiene libre el fin de semana del 10 y 11 de octubre y busca un torneo con plazas.</p>
+            </header>
+            <div class="cs-annotated cs-annotated--b03">
+              <figure class="shot">
+                <button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b03-listado@2x.webp">
+                  <img src="/assets/img/nextcaddy/b03-listado.webp" srcset="/assets/img/nextcaddy/b03-listado.webp 1x, /assets/img/nextcaddy/b03-listado@2x.webp 2x" width="720" height="685" loading="lazy" decoding="async" alt="Listado de torneos propuesto: pestañas Próximos, En curso y Finalizados; buscador y filtros de federación, fechas y modalidad; filtros rápidos y seis tarjetas de torneo, entre ellas la Copa Bécquer con la inscripción abierta." />
+                  <span class="marker" style="--x:37.36%;--y:22.34%" aria-hidden="true">1</span>
+                  <span class="marker" style="--x:40.14%;--y:33.72%" aria-hidden="true">2</span>
+                  <span class="marker" style="--x:38.75%;--y:4.53%" aria-hidden="true">3</span>
+                </button>
+                <figcaption class="caption">Listado de torneos propuesto, en desktop, con datos de ejemplo. La Copa Bécquer del caso aparece con la inscripción abierta.</figcaption>
+              </figure>
+              <ol class="notes notes--stack">
+                <li class="note">
+                  <span class="marker marker--static" aria-hidden="true">1</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Una sección propia</p>
+                    <div class="compare">
+                      <p class="eyebrow compare__label">Análisis</p>
+                      <p class="body-sm">Los próximos torneos vivían dentro de <span class="ui-label">HOY</span>, y el listado completo solo se alcanzaba desde una ficha.</p>
+                      <p class="eyebrow compare__label compare__label--new">Propuesta</p>
+                      <p class="body-sm">Tienen entrada propia en la barra y se clasifican en próximos, en curso y finalizados.</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="note">
+                  <span class="marker marker--static" aria-hidden="true">2</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Acotar sin saber qué buscar</p>
+                    <div class="compare">
+                      <p class="eyebrow compare__label">Análisis</p>
+                      <p class="body-sm">La lista ordenaba torneos por fecha, sin filtros, y el buscador solo servía si ya sabías el nombre.</p>
+                      <p class="eyebrow compare__label compare__label--new">Propuesta</p>
+                      <p class="body-sm">Se ordena por la fecha del torneo y se filtra por fecha, federación, modalidad y disponibilidad.</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="note">
+                  <span class="marker marker--static" aria-hidden="true">3</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">La navegación no se pierde</p>
+                    <div class="compare">
+                      <p class="eyebrow compare__label">Análisis</p>
+                      <p class="body-sm">La ficha se abría sin la barra del sitio. Dependía del botón “atrás” del navegador.</p>
+                      <p class="eyebrow compare__label compare__label--new">Propuesta</p>
+                      <p class="body-sm"><span class="ui-label">TORNEOS</span> permanece en la navegación principal y la ficha incorpora migas de pan para volver al listado.</p>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 04 · Estados y reglas -->
+      <section class="cs-block" aria-labelledby="b04-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">04</span><span class="eyebrow cs-muted">Estados y reglas</span></p>
+              <h2 id="b04-titulo" class="h2">De datos a estados:<br />la tournament-card</h2>
+            </div>
+            <p class="body-md cs-band__text">Un torneo combina tres datos que cambian por separado (fase, inscripción y resultados), y ninguno de los torneos analizados mostraba la misma combinación. <strong>Definí ocho estados de interfaz</strong> a partir de esas combinaciones de datos; cuando coinciden varias condiciones, un orden de prioridad determina cuál mostrar.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head cs-idea__head--wide">
+              <h3 class="h3">Etiqueta, contenido y botón cambian juntos</h3>
+              <p class="body-md">Cada estado define las tres partes a la vez, así que nunca se contradicen.</p>
+            </header>
+            <div class="cs-annotated cs-annotated--b04">
+              <figure class="shot shot--card">
+                <button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-card@2x.webp">
+                  <img src="/assets/img/nextcaddy/b04-card.webp" srcset="/assets/img/nextcaddy/b04-card.webp 1x, /assets/img/nextcaddy/b04-card@2x.webp 2x" width="389" height="347" loading="lazy" decoding="async" alt="Tarjeta de la Copa Bécquer con la etiqueta Inscripción abierta, 74 de 120 plazas, cierre en 2 días y 23 horas, y los botones Ver detalles e Inscribirme." />
+                  <span class="marker" style="--x:82.28%;--y:5.46%" aria-hidden="true">1</span>
+                  <span class="marker" style="--x:87.88%;--y:66.95%" aria-hidden="true">2</span>
+                  <span class="marker" style="--x:84.15%;--y:78.74%" aria-hidden="true">3</span>
+                </button>
+              </figure>
+              <ol class="notes notes--stack">
+                <li class="note">
+                  <span class="marker marker--static" aria-hidden="true">1</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Etiqueta</p>
+                    <p class="body-sm">Nombra el estado; el color solo lo refuerza.</p>
+                  </div>
+                </li>
+                <li class="note">
+                  <span class="marker marker--static" aria-hidden="true">2</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Contenido</p>
+                    <p class="body-sm">Muestra el dato que importa en ese momento: plazas, cierre, líder o ganador.</p>
+                  </div>
+                </li>
+                <li class="note">
+                  <span class="marker marker--static" aria-hidden="true">3</span>
+                  <div class="note__body">
+                    <p class="body-sm-strong note__title">Botón</p>
+                    <p class="body-sm">Lleva a la acción útil: inscribirse, unirse a la lista de espera, seguir el directo o ver la clasificación.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </article>
+
+          <article class="cs-idea">
+            <header class="cs-idea__head cs-idea__head--wide">
+              <h3 class="h3">Ocho estados, del anuncio al resultado</h3>
+              <p class="body-md">Ordenados por el ciclo de vida del torneo.</p>
+            </header>
+            <figure class="cs-gallery-wrap">
+              <ol class="cs-gallery cs-gallery--states">
+                <li><p class="label-sm cs-muted">Antes del torneo · Inscripción aún no abierta</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-1@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-1.webp" srcset="/assets/img/nextcaddy/b04-estado-1.webp 1x, /assets/img/nextcaddy/b04-estado-1@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta Próximamente; la inscripción abre el 21/09 a las 09:00; botón Ver detalles." /></button></li>
+                <li><p class="label-sm cs-muted">Antes del torneo · Inscripción abierta con plazas</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-2@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-2.webp" srcset="/assets/img/nextcaddy/b04-estado-2.webp 1x, /assets/img/nextcaddy/b04-estado-2@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta Inscripción abierta; 74 de 120 plazas y cierre en 2 días y 23 horas; botones Ver detalles e Inscribirme." /></button></li>
+                <li><p class="label-sm cs-muted">Antes del torneo · Quedan pocas plazas</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-3@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-3.webp" srcset="/assets/img/nextcaddy/b04-estado-3.webp 1x, /assets/img/nextcaddy/b04-estado-3@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta Últimas plazas; 114 de 120 plazas, quedan 6; botones Ver detalles e Inscribirme." /></button></li>
+                <li><p class="label-sm cs-muted">Antes del torneo · Lista de espera</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-4@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-4.webp" srcset="/assets/img/nextcaddy/b04-estado-4.webp 1x, /assets/img/nextcaddy/b04-estado-4@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta Completo; 120 de 120 plazas y 12 en lista de espera; botones Ver detalles y Lista de espera." /></button></li>
+                <li><p class="label-sm cs-muted">Antes del torneo · Inscripción cerrada</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-5@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-5.webp" srcset="/assets/img/nextcaddy/b04-estado-5.webp 1x, /assets/img/nextcaddy/b04-estado-5@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta Inscripción cerrada; la inscripción cerró el 05/10; botón Ver detalles." /></button></li>
+                <li><p class="label-sm cs-muted">Durante · Sin resultados aún</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-6@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-6.webp" srcset="/assets/img/nextcaddy/b04-estado-6.webp 1x, /assets/img/nextcaddy/b04-estado-6@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta En curso; torneo en juego, resultados en breve; botón Ver horarios de salida." /></button></li>
+                <li><p class="label-sm cs-muted">Durante · Resultados en directo</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-7@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-7.webp" srcset="/assets/img/nextcaddy/b04-estado-7.webp 1x, /assets/img/nextcaddy/b04-estado-7@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta En curso; líder López Valiente, Juan José, en el hoyo 15 con -5; botón Seguir en directo." /></button></li>
+                <li><p class="label-sm cs-muted">Después · Clasificación final publicada</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b04-estado-8@2x.webp"><img src="/assets/img/nextcaddy/b04-estado-8.webp" srcset="/assets/img/nextcaddy/b04-estado-8.webp 1x, /assets/img/nextcaddy/b04-estado-8@2x.webp 2x" width="288" height="257" loading="lazy" decoding="async" alt="Etiqueta Finalizado; ganador Rodríguez Macarro, Eduardo, con 67 golpes y -5; botón Ver clasificación completa." /></button></li>
+              </ol>
+              <figcaption class="caption">La misma tarjeta de la Copa Bécquer en los ocho estados de interfaz definidos. En la historia del caso solo aparece con la inscripción abierta.</figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <!-- 05 · Jerarquía de contenidos -->
+      <section class="cs-block" aria-labelledby="b05-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">05</span><span class="eyebrow cs-muted">Jerarquía de contenidos</span></p>
+              <h2 id="b05-titulo" class="h2">Un torneo cambia con el tiempo</h2>
+            </div>
+            <p class="body-md cs-band__text">La ficha de un torneo tiene que servir antes, durante y después de jugarlo. En la propuesta, la página es la misma y lo que cambia es <strong>qué se prioriza</strong>: la inscripción, los horarios, la clasificación en directo o el resultado final.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head cs-idea__head--wide">
+              <h3 class="h3">Lo destacado sigue al momento del torneo</h3>
+              <p class="body-md">La estructura de la ficha se mantiene, pero en cada fase cambia qué información se prioriza y qué pestaña queda activa.</p>
+            </header>
+            <ol class="cs-gallery cs-gallery--pair">
+              <li><p class="label-sm cs-muted">Antes del torneo · Vie 2 oct, 13:00 · Inscripción abierta</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b05-fase-1@2x.webp"><img src="/assets/img/nextcaddy/b05-fase-1.webp" srcset="/assets/img/nextcaddy/b05-fase-1.webp 1x, /assets/img/nextcaddy/b05-fase-1@2x.webp 2x" width="592" height="398" loading="lazy" decoding="async" alt="Ficha de la Copa Bécquer antes del torneo: plazo de inscripción, tarifas, categorías y aviso de licencia; en el lateral, plazas, precio desde 45 euros y el botón Inscribirme." /></button></li>
+              <li><p class="label-sm cs-muted">Durante · Sáb 10 oct, 08:45 · En curso, sin resultados aún</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b05-fase-2@2x.webp"><img src="/assets/img/nextcaddy/b05-fase-2.webp" srcset="/assets/img/nextcaddy/b05-fase-2.webp 1x, /assets/img/nextcaddy/b05-fase-2@2x.webp 2x" width="592" height="398" loading="lazy" decoding="async" alt="Ficha en curso sin resultados: el lateral indica torneo en juego, resultados en breve, y la pestaña activa es Horarios de salida." /></button></li>
+              <li><p class="label-sm cs-muted">Durante · Sáb 10 oct, 12:30 · En directo</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b05-fase-3@2x.webp"><img src="/assets/img/nextcaddy/b05-fase-3.webp" srcset="/assets/img/nextcaddy/b05-fase-3.webp 1x, /assets/img/nextcaddy/b05-fase-3@2x.webp 2x" width="592" height="398" loading="lazy" decoding="async" alt="Ficha en directo: el lateral muestra al líder provisional, López Valiente, Juan José, en el hoyo 15 con -5, y la pestaña activa es Clasificación." /></button></li>
+              <li><p class="label-sm cs-muted">Después · Sáb 10 oct, 17:00 · Finalizado</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b05-fase-4@2x.webp"><img src="/assets/img/nextcaddy/b05-fase-4.webp" srcset="/assets/img/nextcaddy/b05-fase-4.webp 1x, /assets/img/nextcaddy/b05-fase-4@2x.webp 2x" width="592" height="398" loading="lazy" decoding="async" alt="Ficha finalizada: el lateral muestra la clasificación final con el ganador, Rodríguez Macarro, Eduardo, con 67 golpes, y la pestaña activa es Clasificación." /></button></li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <!-- 06 · Responsive y accesibilidad -->
+      <section class="cs-block" aria-labelledby="b06-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">06</span><span class="eyebrow cs-muted">Responsive y accesibilidad</span></p>
+              <h2 id="b06-titulo" class="h2">La misma información en cualquier pantalla</h2>
+            </div>
+            <p class="body-md cs-band__text">En la web analizada, desktop y móvil no contaban lo mismo. En la propuesta, la ficha se reordena en móvil <strong>sin perder datos</strong>, el estado se entiende sin depender del color. Cada decisión se revisó con WCAG 2.2 AA.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head cs-idea__head--wide">
+              <h3 class="h3">Desktop y móvil cuentan lo mismo</h3>
+              <p class="body-md">La ficha de la Copa Bécquer en las dos versiones, con las decisiones de responsive y accesibilidad.</p>
+            </header>
+            <div class="cs-devices">
+              <figure class="shot cs-devices__desktop">
+                <button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b06-desktop@2x.webp">
+                  <img src="/assets/img/nextcaddy/b06-desktop.webp" srcset="/assets/img/nextcaddy/b06-desktop.webp 1x, /assets/img/nextcaddy/b06-desktop@2x.webp 2x" width="810" height="514" loading="lazy" decoding="async" alt="Ficha de la Copa Bécquer en desktop: cabecera con etiqueta Inscripción abierta, plazo, tarifas y categorías; a la derecha, el lateral de inscripción con plazas, precio y botón Inscribirme." />
+                  <span class="marker" style="--x:92.96%;--y:42.8%" aria-hidden="true">1</span>
+                  <span class="marker" style="--x:1.85%;--y:19.46%" aria-hidden="true">3</span>
+                </button>
+                <figcaption class="caption">Ficha del torneo en desktop: el lateral de inscripción acompaña al contenido.</figcaption>
+              </figure>
+              <figure class="shot cs-devices__mobile">
+                <button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b06-movil@2x.webp">
+                  <img src="/assets/img/nextcaddy/b06-movil.webp" srcset="/assets/img/nextcaddy/b06-movil.webp 1x, /assets/img/nextcaddy/b06-movil@2x.webp 2x" width="300" height="666" loading="lazy" decoding="async" alt="La misma ficha en móvil: enlace para volver a Torneos, etiqueta Inscripción abierta, plazo y tarifas, y abajo una barra fija con el precio desde 45 euros y el botón Inscribirme." />
+                  <span class="marker" style="--x:87.33%;--y:51.5%" aria-hidden="true">1</span>
+                  <span class="marker" style="--x:87.33%;--y:22.37%" aria-hidden="true">3</span>
+                  <span class="marker" style="--x:87.33%;--y:90.24%" aria-hidden="true">2</span>
+                </button>
+                <figcaption class="caption">La misma ficha en móvil. Las migas de pan se sustituyen por un enlace ← Torneos con un área interactiva de 44 px de alto.</figcaption>
+              </figure>
+            </div>
+            <div class="cs-notes-groups">
+              <section class="cs-notes-group" aria-labelledby="b06-responsive">
+                <h4 id="b06-responsive" class="body-md-strong">Responsive</h4>
+                <ol class="notes notes--stack">
+                  <li class="note">
+                    <span class="marker marker--static" aria-hidden="true">1</span>
+                    <div class="note__body">
+                      <p class="body-sm-strong note__title">Mismos datos, otro orden</p>
+                      <div class="compare">
+                        <p class="eyebrow compare__label">Análisis</p>
+                        <p class="body-sm">Las plazas solo aparecían en desktop al pasar sobre <span class="ui-label">Inscripción</span>, y las categorías solo se veían en desktop.</p>
+                        <p class="eyebrow compare__label compare__label--new">Propuesta</p>
+                        <p class="body-sm">Plazas, cierre, importe y categorías están en las dos versiones; en móvil, por encima de inscritos y horarios.</p>
+                      </div>
+                      <p class="caption cs-muted note__heuristic">Heurística · Consistencia y estándares</p>
+                    </div>
+                  </li>
+                  <li class="note">
+                    <span class="marker marker--static" aria-hidden="true">2</span>
+                    <div class="note__body">
+                      <p class="body-sm-strong note__title">El botón, siempre a mano</p>
+                      <p class="body-sm"><span class="ui-label">Inscribirme</span> queda fijo abajo mientras el bloque de inscripción no está en pantalla.</p>
+                      <p class="caption cs-muted note__heuristic">Heurística · Flexibilidad y eficiencia de uso</p>
+                    </div>
+                  </li>
+                </ol>
+              </section>
+              <section class="cs-notes-group" aria-labelledby="b06-accesibilidad">
+                <h4 id="b06-accesibilidad" class="body-md-strong">Accesibilidad</h4>
+                <ol class="notes notes--stack" start="3">
+                  <li class="note">
+                    <span class="marker marker--static" aria-hidden="true">3</span>
+                    <div class="note__body">
+                      <p class="body-sm-strong note__title">El estado se lee, no se adivina</p>
+                      <div class="compare">
+                        <p class="eyebrow compare__label">Análisis</p>
+                        <p class="body-sm">El estado no se comunicaba de forma consistente entre pantallas: con la inscripción cerrada, desktop seguía mostrando el botón y móvil lo ocultaba</p>
+                        <p class="eyebrow compare__label compare__label--new">Propuesta</p>
+                        <p class="body-sm">La etiqueta nombra el estado en las dos versiones y el color solo lo refuerza.</p>
+                      </div>
+                      <p class="caption cs-muted note__heuristic">Heurística · Visibilidad del estado del sistema</p>
+                    </div>
+                  </li>
+                </ol>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 07 · Flujos e interacción -->
+      <section class="cs-block" aria-labelledby="b07-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">07</span><span class="eyebrow cs-muted">Flujos e interacción</span></p>
+              <h2 id="b07-titulo" class="h2">Inscribirse sin sorpresas</h2>
+            </div>
+            <p class="body-md cs-band__text">Inscribirse pide datos, categoría, tarifa y pago. La propuesta lo ordena en tres pasos y una confirmación, con <strong>un resumen siempre a la vista</strong>: torneo, plazas, cierre e importe.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head cs-idea__head--wide">
+              <h3 class="h3">El resumen acompaña todo el proceso</h3>
+              <p class="body-md">Lucía, con licencia de Madrid, se inscribe en la Copa Bécquer: del primer paso a la confirmación.</p>
+            </header>
+            <ol class="cs-gallery cs-gallery--pair">
+              <li><p class="label-sm cs-muted">Paso 1 · Jugador</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b07-paso-1@2x.webp"><img src="/assets/img/nextcaddy/b07-paso-1.webp" srcset="/assets/img/nextcaddy/b07-paso-1.webp 1x, /assets/img/nextcaddy/b07-paso-1@2x.webp 2x" width="592" height="308" loading="lazy" decoding="async" alt="Paso 1, datos del jugador: con la licencia se completan el correo y el nombre de Lucía Martín Pérez; a la derecha, el resumen del torneo con plazas y cierre." /></button></li>
+              <li><p class="label-sm cs-muted">Paso 2 · Categoría y tarifa</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b07-paso-2@2x.webp"><img src="/assets/img/nextcaddy/b07-paso-2.webp" srcset="/assets/img/nextcaddy/b07-paso-2.webp 1x, /assets/img/nextcaddy/b07-paso-2@2x.webp 2x" width="592" height="308" loading="lazy" decoding="async" alt="Paso 2: categoría Señoras y tarifa Otras federaciones, 55 euros, con las casillas de condiciones marcadas; el resumen lateral ya muestra categoría y tarifa." /></button></li>
+              <li><p class="label-sm cs-muted">Paso 3 · Pago</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b07-paso-3@2x.webp"><img src="/assets/img/nextcaddy/b07-paso-3.webp" srcset="/assets/img/nextcaddy/b07-paso-3.webp 1x, /assets/img/nextcaddy/b07-paso-3@2x.webp 2x" width="592" height="308" loading="lazy" decoding="async" alt="Paso 3, pago con tarjeta mediante pasarela segura y botón Ir al pago con el importe de 55 euros; el resumen lateral se mantiene." /></button></li>
+              <li><p class="label-sm cs-muted">Confirmación</p><button class="shot__zoom" type="button" data-zoom="/assets/img/nextcaddy/b07-paso-4@2x.webp"><img src="/assets/img/nextcaddy/b07-paso-4.webp" srcset="/assets/img/nextcaddy/b07-paso-4.webp 1x, /assets/img/nextcaddy/b07-paso-4@2x.webp 2x" width="592" height="308" loading="lazy" decoding="async" alt="Confirmación: ¡Estás inscrita!, con jugadora, categoría e importe pagado de 55 euros; el resumen lateral pasa a 75 de 120 plazas." /></button></li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <!-- 08 · Design system -->
+      <section class="cs-block" aria-labelledby="b08-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">08</span><span class="eyebrow cs-muted">Design system</span></p>
+              <h2 id="b08-titulo" class="h2">De la variable al componente</h2>
+            </div>
+            <p class="body-md cs-band__text">Una propuesta con tantos estados necesita reglas que desarrollo pueda seguir. Construí un design system con variables en tres niveles, componentes con sus estados y una hoja de documentación por pieza.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <article class="cs-idea">
+            <header class="cs-idea__head cs-idea__head--wide">
+              <h3 class="h3">Cada valor se define una vez y se usa por su nombre</h3>
+              <p class="body-md">El componente no sabe de colores; sabe de funciones.</p>
+            </header>
+            <figure class="cs-chain-wrap">
+              <ol class="chain">
+                <li class="chain__step">
+                  <h4 class="h4">Primitivos</h4>
+                  <p class="body-sm cs-muted">Valores base que alimentan el sistema.</p>
+                  <ul class="tokens">
+                    <li class="token"><span class="token__swatch token__swatch--lime" aria-hidden="true"></span><span class="token__text"><span class="label-sm">color-palettes/lime/500</span><span class="caption cs-muted">#D4FF14</span></span></li>
+                    <li class="token"><span class="token__swatch token__swatch--dark" aria-hidden="true"></span><span class="token__text"><span class="label-sm">color-palettes/grey/900</span><span class="caption cs-muted">#0D0D0D</span></span></li>
+                    <li class="token"><span class="token__swatch token__swatch--space" aria-hidden="true"></span><span class="token__text"><span class="label-sm">spacing-scale/400</span><span class="caption cs-muted">16</span></span></li>
+                  </ul>
+                </li>
+                <li class="chain__arrow" aria-hidden="true"></li>
+                <li class="chain__step">
+                  <h4 class="h4">Semánticos</h4>
+                  <p class="body-sm cs-muted">Qué significa cada valor.</p>
+                  <ul class="tokens">
+                    <li class="token"><span class="token__swatch token__swatch--lime" aria-hidden="true"></span><span class="token__text"><span class="label-sm">color/core/brand/500</span><span class="caption cs-muted">→ lime/500</span></span></li>
+                    <li class="token"><span class="token__swatch token__swatch--dark" aria-hidden="true"></span><span class="token__text"><span class="label-sm">color/text/on-brand</span><span class="caption cs-muted">→ grey/900</span></span></li>
+                    <li class="token"><span class="token__swatch token__swatch--space" aria-hidden="true"></span><span class="token__text"><span class="label-sm">spacing/inset/md</span><span class="caption cs-muted">→ spacing-scale/400</span></span></li>
+                  </ul>
+                </li>
+                <li class="chain__arrow" aria-hidden="true"></li>
+                <li class="chain__step">
+                  <h4 class="h4">Componentes</h4>
+                  <p class="body-sm cs-muted">Dónde se usa.</p>
+                  <ul class="tokens">
+                    <li class="token"><span class="token__swatch token__swatch--lime" aria-hidden="true"></span><span class="token__text"><span class="label-sm">button/primary/default/bg</span><span class="caption cs-muted">→ color/core/brand/500</span></span></li>
+                    <li class="token"><span class="token__swatch token__swatch--dark" aria-hidden="true"></span><span class="token__text"><span class="label-sm">button/primary/default/text</span><span class="caption cs-muted">→ color/text/on-brand</span></span></li>
+                    <li class="token"><span class="token__swatch token__swatch--space" aria-hidden="true"></span><span class="token__text"><span class="label-sm">button/md/padding-x</span><span class="caption cs-muted">→ spacing/inset/md</span></span></li>
+                  </ul>
+                </li>
+                <li class="chain__arrow" aria-hidden="true"></li>
+                <li class="chain__step">
+                  <h4 class="h4">Resultado</h4>
+                  <p class="body-sm cs-muted">El botón, con sus variables aplicadas.</p>
+                  <div class="chain__result"><span class="nc-button">Inscribirme</span></div>
+                </li>
+              </ol>
+              <figcaption class="body-sm cs-muted">Cadena real del botón principal de NextCaddy.</figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <!-- Lo que haría después -->
+      <section class="cs-block" aria-labelledby="despues-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="eyebrow cs-muted">Siguientes pasos</p>
+              <h2 id="despues-titulo" class="h2">Lo que haría después</h2>
+            </div>
+            <p class="body-md cs-band__text">La propuesta no llegó a producción ni a testearse con usuarios. Lo siguiente sería <strong>validarla</strong> y completar lo que quedó fuera de alcance.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <ol class="next-steps">
+            <li class="next-step">
+              <p class="eyebrow cs-muted" aria-hidden="true">01</p>
+              <h3 class="h4">Validarlo</h3>
+              <p class="body-sm">Probaría con golfistas las tareas centrales del recorrido: encontrar un torneo con plazas, entender su estado y completar una inscripción. Observaría errores, dudas y puntos de bloqueo.</p>
+            </li>
+            <li class="next-step">
+              <p class="eyebrow cs-muted" aria-hidden="true">02</p>
+              <h3 class="h4">Poner a prueba las reglas</h3>
+              <p class="body-sm">Aplicaría el sistema a más torneos y casuísticas reales para comprobar que los estados, prioridades y componentes siguen funcionando antes de ampliar la propuesta.</p>
+            </li>
+            <li class="next-step">
+              <p class="eyebrow cs-muted" aria-hidden="true">03</p>
+              <h3 class="h4">Revisar con desarrollo</h3>
+              <p class="body-sm">Revisaría la propuesta junto a desarrollo frente a la base existente: qué puede reutilizarse, qué restricciones introduce el código legacy y dónde conviene adaptar o replantear la implementación.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Sobre los datos -->
+      <section class="cs-block" id="sobre-los-datos" aria-labelledby="datos-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="eyebrow cs-muted">Transparencia</p>
+              <h2 id="datos-titulo" class="h2">Sobre los datos</h2>
+            </div>
+            <p class="body-md cs-band__text">La propuesta no llegó a producción, así que las pantallas usan <strong>datos de ejemplo</strong>. Aquí cuento qué es real, qué es inventado y cómo muestro la web analizada.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <div class="data-notes">
+            <div class="data-note">
+              <h3 class="body-md-strong">El proyecto y la marca</h3>
+              <p class="body-sm">Propuesta de rediseño de la web pública de NextCaddy que realicé como UX/UI Designer en Green Slope. NextCaddy, su logotipo y su marca pertenecen a Green Slope y se muestran únicamente para presentar mi trabajo. La propuesta no llegó a producción.</p>
+            </div>
+            <div class="data-note">
+              <h3 class="body-md-strong">Lo que es inventado</h3>
+              <p class="body-sm">Todos los torneos, inscripciones, horarios, resultados y personas que aparecen son inventados. El Club de Golf La Almazara y la Copa Bécquer no existen.</p>
+            </div>
+            <div class="data-note">
+              <h3 class="body-md-strong">Lo que es real</h3>
+              <p class="body-sm">Los clubes reales aparecen solo con información pública y verificable. Las federaciones y modalidades de juego son reales. Las cifras de la portada de NextCaddy proceden de su web pública en el momento del análisis.</p>
+            </div>
+            <div class="data-note">
+              <h3 class="body-md-strong">Cómo muestro la web analizada</h3>
+              <p class="body-sm">Las referencias a la web analizada se muestran como esquemas, sin capturas con nombres, licencias ni otros datos de personas reales.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lo que dice el equipo -->
+      <section class="cs-block" aria-labelledby="equipo-titulo">
+        <header class="cs-band">
+          <div class="container cs-band__inner">
+            <div class="cs-band__title">
+              <p class="eyebrow cs-muted">Referencias</p>
+              <h2 id="equipo-titulo" class="h2">Lo que dice el equipo</h2>
+            </div>
+            <p class="body-md cs-band__text">Feedback del CEO y el CTO de Green Slope durante el proyecto.</p>
+          </div>
+        </header>
+        <div class="container cs-content">
+          <div class="quotes">
+            <figure class="quote">
+              <blockquote class="quote__bubble body-lead">
+                <p>«No es fácil contar con gente con el gusto y la profesionalidad de Lili. Una verdadera suerte trabajar con ella para mí y para todo el equipo.»</p>
+              </blockquote>
+              <figcaption class="quote__author">
+                <span class="quote__avatar body-sm-strong" aria-hidden="true">IP</span>
+                <span class="quote__name"><span class="h4">Ignacio Pérez</span><span class="body-sm">CEO · Green Slope</span></span>
+              </figcaption>
+            </figure>
+            <figure class="quote quote--right">
+              <blockquote class="quote__bubble body-lead">
+                <p>«Destacaría especialmente su habilidad para analizar situaciones, comprender las necesidades reales de cada proyecto y aportar ideas con criterio propio.»</p>
+              </blockquote>
+              <figcaption class="quote__author">
+                <span class="quote__avatar body-sm-strong" aria-hidden="true">JC</span>
+                <span class="quote__name"><span class="h4">Juan Jesús Cabrera</span><span class="body-sm">CTO · Green Slope</span></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="site-footer">
+      <div class="container footer">
+        <h2 class="h2 footer__title">Disponible para una charla.</h2>
+        <div class="footer__side">
+          <div class="footer__contact">
+            <a class="contact-button" href="mailto:lilirubio.design@gmail.com" data-copy="lilirubio.design@gmail.com">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 6h13.5c.375 0 .728.09 1.038.254L13.125 11.25a1.875 1.875 0 0 1-2.25 0L4.212 6.254C4.522 6.09 4.877 6 5.25 6Zm-2.249 2.157L3 8.25v7.5A2.25 2.25 0 0 0 5.25 18h13.5A2.25 2.25 0 0 0 21 15.75v-7.5l-.002-.093-6.523 4.893a4.125 4.125 0 0 1-4.95 0L3.001 8.157ZM.75 8.25a4.5 4.5 0 0 1 4.5-4.5h13.5a4.5 4.5 0 0 1 4.5 4.5v7.5a4.5 4.5 0 0 1-4.5 4.5H5.25a4.5 4.5 0 0 1-4.5-4.5v-7.5Z"/></svg>
+              <span>lilirubio.design@gmail.com</span>
+            </a>
+            <a class="icon-button" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de Lili Rubio (se abre en otra pestaña)">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.875 9.525a3.375 3.375 0 0 1 3.375 3.375v3.6a1.125 1.125 0 0 1-2.25 0v-3.6a1.125 1.125 0 0 0-2.25 0v3.6a1.125 1.125 0 0 1-2.25 0v-5.625a1.125 1.125 0 0 1 1.75-.936 3.36 3.36 0 0 1 1.625-.414Zm-5.994.225c.62 0 1.125.504 1.125 1.125V16.5a1.125 1.125 0 0 1-2.25 0v-5.625c0-.62.504-1.125 1.125-1.125ZM7.875 6a1.5 1.5 0 1 1 0 3.002A1.5 1.5 0 0 1 7.875 6Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 2.25a4.5 4.5 0 0 1 4.5 4.5v10.5a4.5 4.5 0 0 1-4.269 4.496l-.231.006H6.75l-.231-.006a4.5 4.5 0 0 1-4.263-4.263L2.25 17.25V6.75a4.5 4.5 0 0 1 4.5-4.5h10.5ZM6.75 4.5A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75Z"/></svg>
+            </a>
+          </div>
+          <p class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Ampliación de capturas -->
+    <dialog class="lightbox" aria-label="Captura ampliada">
+      <button class="lightbox__close" type="button" aria-label="Cerrar">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 5.2a.85.85 0 0 0-1.2 1.2L10.8 12l-5.6 5.6a.85.85 0 1 0 1.2 1.2l5.6-5.6 5.6 5.6a.85.85 0 0 0 1.2-1.2L13.2 12l5.6-5.6a.85.85 0 0 0-1.2-1.2L12 10.8 6.4 5.2Z"/></svg>
+      </button>
+      <img class="lightbox__img" alt="" />
+    </dialog>
+  </body>
+</html>
