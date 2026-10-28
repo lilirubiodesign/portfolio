@@ -1,0 +1,205 @@
+/*
+  Tokens del portfolio · generados desde Figma (774YQgeLzB2Yf8PldwOe5m), 28 oct 2026.
+  Mismas tres capas que en Figma: primitivas → semánticas → componente.
+  Responsive: los valores por defecto son los del modo «mobile» de semantic-number;
+  a partir de 960 px se aplican los del modo «desktop».
+*/
+
+/* ── 1. Primitivas (no usar directamente en componentes) ── */
+:root {
+  --color-grey-000: #f7f8fa;
+  --color-grey-100: #eef0f3;
+  --color-grey-200: #e5e8eb;
+  --color-grey-300: #d5dae0;
+  --color-grey-400: #bcc3cb;
+  --color-grey-500: #8e98a3;
+  --color-grey-600: #5d6874;
+  --color-grey-700: #36404a;
+  --color-grey-800: #263238;
+  --color-grey-900: #15191e;
+  --color-white: #ffffff;
+  --color-transparent: #ffffff00;
+  --color-accent-lavender: #c8c3e3;
+  --color-accent-orange: #f6b977;
+  --color-accent-green: #caf3a5;
+
+  --space-000: 0px;
+  --space-050: 2px;
+  --space-100: 4px;
+  --space-200: 8px;
+  --space-300: 12px;
+  --space-400: 16px;
+  --space-500: 24px;
+  --space-600: 32px;
+  --space-700: 48px;
+  --space-800: 64px;
+  --space-900: 80px;
+  --space-1000: 96px;
+  --space-1100: 128px;
+  --space-1200: 160px;
+
+  --corner-radius-200: 8px;
+  --corner-radius-400: 16px;
+  --corner-radius-500: 24px;
+  --corner-radius-600: 32px;
+}
+
+/* ── 2. Semánticas: color (un solo modo) ── */
+:root {
+  --bg-canvas: var(--color-grey-000);
+  --bg-surface: var(--color-white);
+  --bg-frame: var(--color-grey-100);
+  --bg-subtle: var(--color-grey-200);
+  --bg-disabled: var(--color-grey-300);
+  --bg-inverse: var(--color-grey-800);
+  --bg-inverse-hover: var(--color-grey-900);
+  --bg-inverse-raised: var(--color-grey-700);
+
+  --text-primary: var(--color-grey-900);
+  --text-body: var(--color-grey-700);
+  --text-muted: var(--color-grey-600);
+  --text-disabled: var(--color-grey-500);
+  --text-on-inverse: var(--color-grey-000);
+  --text-on-inverse-body: var(--color-grey-300);
+
+  --border-default: var(--color-grey-300);
+  --border-strong: var(--color-grey-500);
+  --border-inverse: var(--color-grey-100);
+  --border-focus: var(--color-grey-900);
+
+  /* Acentos: un color por función. Nombres heredados de Figma (pendiente renombrar por función). */
+  --highlight-text: var(--color-accent-green);   /* subrayador de palabras clave */
+  --bg-brand: var(--color-accent-lavender);      /* marcadores numerados */
+  --annotation-bg: var(--color-accent-orange);   /* cursor «Lili» del hero */
+}
+
+/* ── 2. Semánticas: número (modo mobile por defecto) ── */
+:root {
+  --corner-radius-none: 0px;
+  --corner-radius-sm: var(--corner-radius-200);
+  --corner-radius-md: var(--corner-radius-400);
+  --corner-radius-lg: var(--corner-radius-500);
+  --corner-radius-xl: var(--corner-radius-600);
+  --corner-radius-full: 1000px;
+
+  --spacing-inset-2xs: var(--space-100);
+  --spacing-inset-xs: var(--space-200);
+  --spacing-inset-sm: var(--space-300);
+  --spacing-inset-md: var(--space-400);
+  --spacing-inset-lg: var(--space-500);
+  --spacing-inset-xl: var(--space-600);
+  --spacing-inset-2xl: var(--space-700);
+
+  --spacing-stack-xs: var(--space-200);
+  --spacing-stack-sm: var(--space-300);
+  --spacing-stack-md: var(--space-400);
+  --spacing-stack-lg: var(--space-500);
+  --spacing-stack-xl: var(--space-600);
+  --spacing-stack-2xl: var(--space-700);
+
+  --spacing-inline-xs: var(--space-200);
+  --spacing-inline-sm: var(--space-300);
+  --spacing-inline-md: var(--space-400);
+  --spacing-inline-lg: var(--space-500);
+  --spacing-inline-xl: var(--space-600);
+  --spacing-inline-2xl: var(--space-700);
+
+  --spacing-section-xs: var(--space-400);
+  --spacing-section-sm: var(--space-600);
+  --spacing-section-md: var(--space-700);
+  --spacing-section-lg: var(--space-800);
+  --spacing-section-xl: var(--space-900);
+  --spacing-section-2xl: var(--space-1000);
+
+  --spacing-page-margin: var(--space-400);
+  --content-max-width: 1200px;
+
+  --stroke-2: var(--space-050);
+
+  /* Tipografía: tamaño / interlineado */
+  --type-display-hero-size: 40px;  --type-display-hero-lh: 46px;
+  --type-h1-size: 34px;            --type-h1-lh: 40px;
+  --type-h2-size: 28px;            --type-h2-lh: 34px;
+  --type-h3-size: 22px;            --type-h3-lh: 28px;
+  --type-h4-size: 18px;            --type-h4-lh: 26px;
+  --type-body-lead-size: 18px;     --type-body-lead-lh: 28px;
+  --type-body-md-size: 16px;       --type-body-md-lh: 26px;
+  --type-body-sm-size: 14px;       --type-body-sm-lh: 22px;
+  --type-label-md-size: 15px;      --type-label-md-lh: 20px;
+  --type-label-sm-size: 13px;      --type-label-sm-lh: 16px;
+  --type-eyebrow-size: 12px;       --type-eyebrow-lh: 16px;
+  --type-caption-size: 13px;       --type-caption-lh: 18px;
+
+  --font-display: "Bevellier", system-ui, sans-serif;
+  --font-text: "Switzer", system-ui, sans-serif;
+}
+
+/* ── 2. Semánticas: número (modo desktop) ── */
+@media (min-width: 960px) {
+  :root {
+    --spacing-section-xs: var(--space-500);
+    --spacing-section-sm: var(--space-700);
+    --spacing-section-md: var(--space-800);
+    --spacing-section-lg: var(--space-1000);
+    --spacing-section-xl: var(--space-1100);
+    --spacing-section-2xl: var(--space-1200);
+
+    --spacing-page-margin: 120px;
+
+    --type-display-hero-size: 64px;  --type-display-hero-lh: 72px;
+    --type-h1-size: 48px;            --type-h1-lh: 56px;
+    --type-h2-size: 36px;            --type-h2-lh: 44px;
+    --type-h3-size: 28px;            --type-h3-lh: 34px;
+    --type-h4-size: 20px;            --type-h4-lh: 28px;
+    --type-body-lead-size: 20px;     --type-body-lead-lh: 32px;
+    --type-body-md-size: 17px;       --type-body-md-lh: 28px;
+    --type-body-sm-size: 15px;       --type-body-sm-lh: 24px;
+    --type-eyebrow-size: 13px;
+  }
+}
+
+/* ── 3. Componente ── */
+:root {
+  --button-padding-x: var(--spacing-inset-lg);
+  --button-padding-y: var(--spacing-inset-sm);
+  --button-gap: var(--spacing-inline-xs);
+  --button-radius: var(--corner-radius-full);
+  --button-min-height: 48px;
+  --button-primary-bg-default: var(--bg-inverse);
+  --button-primary-bg-hover: var(--bg-inverse-hover);
+  --button-primary-text: var(--text-on-inverse);
+  --button-secondary-bg: var(--bg-surface);
+  --button-secondary-border-default: var(--border-default);
+  --button-secondary-border-hover: var(--border-strong);
+  --button-secondary-text: var(--text-primary);
+  --button-focus-ring: var(--border-focus);
+
+  --nav-item-padding-x: var(--spacing-inset-sm);
+  --nav-item-padding-y: var(--spacing-inset-xs);
+  --nav-item-min-height: 44px;
+  --nav-item-text-default: var(--text-body);
+  --nav-item-text-hover: var(--text-primary);
+  --nav-item-indicator: var(--border-focus);
+
+  --nav-bar-padding-y: var(--spacing-inset-lg);
+  --nav-bar-gap: var(--spacing-inline-sm);
+  --nav-bar-bg: var(--bg-canvas);
+  --nav-bar-border: var(--border-default);
+
+  --chip-padding-x: var(--spacing-inset-sm);
+  --chip-padding-y: var(--spacing-inset-2xs);
+  --chip-radius: var(--corner-radius-full);
+  --chip-bg: var(--bg-frame);
+  --chip-text: var(--text-body);
+
+  --footer-bg: var(--bg-inverse-hover);
+  --footer-text: var(--text-on-inverse);
+  --footer-padding-y: var(--spacing-section-sm);
+
+  --icon-button-on-dark-bg-default: var(--bg-inverse);
+  --icon-button-on-dark-bg-hover: var(--bg-inverse-raised);
+  --icon-button-on-dark-icon: var(--text-on-inverse);
+  --icon-button-on-light-bg-default: var(--bg-frame);
+  --icon-button-on-light-bg-hover: var(--bg-subtle);
+  --icon-button-on-light-icon: var(--text-primary);
+}

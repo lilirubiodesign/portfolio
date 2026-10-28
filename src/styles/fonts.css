@@ -1,0 +1,26 @@
+/*
+  Fuentes del portfolio (Fontshare). Solo los pesos que usa el sistema:
+  Bevellier 400 (display/hero) y 500 (h1–h3).
+  Switzer 300 (body/lead), 400 (+ cursiva), 500 (labels, eyebrow) y 600 (h4, *-strong).
+*/
+
+@font-face {
+  font-family: "Bevellier";
+  src: url("/fonts/Bevellier-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bevellier";
+  src: url("/fonts/Bevellier-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face { font-family: "Switzer"; src: url("/fonts/Switzer-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Switzer"; src: url("/fonts/Switzer-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Switzer"; src: url("/fonts/Switzer-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Switzer"; src: url("/fonts/Switzer-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Switzer"; src: url("/fonts/Switzer-Semibold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }

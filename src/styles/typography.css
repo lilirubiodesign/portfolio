@@ -1,0 +1,37 @@
+/*
+  Estilos de texto del portfolio · equivalen a los text styles de Figma.
+  Tamaño e interlineado cambian solos con el breakpoint a través de tokens.css.
+  Las fuentes (Bevellier y Switzer, Fontshare) se cargan en fonts.css con los .woff2.
+*/
+
+.display-hero { font-family: var(--font-display); font-weight: 400; font-size: var(--type-display-hero-size); line-height: var(--type-display-hero-lh); letter-spacing: -1px; }
+.h1 { font-family: var(--font-display); font-weight: 500; font-size: var(--type-h1-size); line-height: var(--type-h1-lh); letter-spacing: -1px; }
+.h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--type-h2-size); line-height: var(--type-h2-lh); letter-spacing: -0.5px; }
+.h3 { font-family: var(--font-display); font-weight: 500; font-size: var(--type-h3-size); line-height: var(--type-h3-lh); }
+.h4 { font-family: var(--font-text); font-weight: 600; font-size: var(--type-h4-size); line-height: var(--type-h4-lh); }
+
+.body-lead { font-family: var(--font-text); font-weight: 300; font-size: var(--type-body-lead-size); line-height: var(--type-body-lead-lh); }
+.body-lead-strong { font-family: var(--font-text); font-weight: 500; font-size: var(--type-body-lead-size); line-height: var(--type-body-lead-lh); }
+.body-md { font-family: var(--font-text); font-weight: 400; font-size: var(--type-body-md-size); line-height: var(--type-body-md-lh); }
+.body-md-strong { font-family: var(--font-text); font-weight: 600; font-size: var(--type-body-md-size); line-height: var(--type-body-md-lh); }
+.body-sm { font-family: var(--font-text); font-weight: 400; font-size: var(--type-body-sm-size); line-height: var(--type-body-sm-lh); }
+.body-sm-strong { font-family: var(--font-text); font-weight: 600; font-size: var(--type-body-sm-size); line-height: var(--type-body-sm-lh); }
+
+.label-md { font-family: var(--font-text); font-weight: 500; font-size: var(--type-label-md-size); line-height: var(--type-label-md-lh); }
+.label-sm { font-family: var(--font-text); font-weight: 500; font-size: var(--type-label-sm-size); line-height: var(--type-label-sm-lh); }
+.eyebrow { font-family: var(--font-text); font-weight: 500; font-size: var(--type-eyebrow-size); line-height: var(--type-eyebrow-lh); letter-spacing: 0.08em; text-transform: uppercase; }
+.caption { font-family: var(--font-text); font-weight: 400; font-size: var(--type-caption-size); line-height: var(--type-caption-lh); }
+
+/* Subrayador verde de palabras clave en titulares */
+.highlight {
+  text-decoration: underline;
+  text-decoration-color: var(--highlight-text);
+  text-decoration-thickness: 0.42em;
+  text-underline-offset: -0.28em;
+  text-decoration-skip-ink: none;
+}
+/* Evita que una expresión subrayada se parta entre líneas («cueste menos») */
+.nowrap { white-space: nowrap; }
+
+/* Etiqueta de interfaz citada en el texto (TORNEOS, Inscribirme…) */
+.ui-label { background: var(--bg-frame); padding: 0 0.2em; border-radius: 4px; }
