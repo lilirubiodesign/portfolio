@@ -33,3 +33,11 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Enlace para saltar al contenido (visible solo con teclado) */
+.skip-link {
+  position: absolute; left: var(--spacing-page-margin); top: -100px; z-index: 10;
+  padding: 8px 12px; border-radius: 8px;
+  background: var(--bg-inverse); color: var(--text-on-inverse); text-decoration: none;
+}
+.skip-link:focus { top: 8px; }

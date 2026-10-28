@@ -1,0 +1,48 @@
+/* Home · hero, Trabajo y adelanto de Sobre mí (hi-fi `home-desktop` / `home-mobile`) */
+
+.section { padding-block: var(--spacing-section-lg); }
+.section--frame { background: var(--bg-frame); }
+.section-heading { display: flex; flex-direction: column; gap: var(--spacing-stack-sm); }
+.section-heading .eyebrow,
+.eyebrow--muted { color: var(--text-muted); }
+
+/* ── Hero ── */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-section-md);
+}
+.hero__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-stack-lg); }
+.hero__location { color: var(--text-muted); }
+.hero__lead { color: var(--text-body); }
+.hero__actions { display: flex; gap: var(--spacing-inline-md); width: 100%; }
+.hero__actions .button { flex: 1 1 0; }
+.hero__visual {
+  width: 100%;
+  aspect-ratio: 358 / 532;
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--corner-radius-lg);
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+}
+
+@media (min-width: 960px) {
+  .hero__content { flex-direction: row; align-items: center; gap: var(--space-900); }
+  .hero__text { flex: 1 1 0; }
+  .hero__actions { width: auto; }
+  .hero__actions .button { flex: none; }
+  .hero__visual { flex: 0 0 560px; aspect-ratio: 1 / 1; }
+}
+
+/* ── Trabajo ── */
+.work { display: flex; flex-direction: column; gap: var(--spacing-section-sm); }
+
+/* ── Adelanto de Sobre mí ── */
+.about-teaser { display: flex; flex-direction: column; gap: var(--spacing-section-sm); }
+.about-teaser__heading { display: flex; flex-direction: column; gap: var(--spacing-stack-md); }
+.about-teaser__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-stack-lg); }
+@media (min-width: 960px) {
+  .about-teaser { flex-direction: row; gap: var(--space-900); }
+  .about-teaser > * { flex: 1 1 0; }
+}

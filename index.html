@@ -3,23 +3,124 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lili Rubio · Diseño de producto</title>
-    <meta name="description" content="Soy Lili Rubio y diseño productos digitales para que entenderlos cueste menos." />
+    <title>Lili Rubio · UX/UI y diseño de producto</title>
+    <meta name="description" content="Soy Lili Rubio y diseño productos digitales para que entenderlos cueste menos. UX/UI y diseño de producto en Sevilla." />
+    <link rel="canonical" href="https://lilirubio.es/" />
     <link rel="preload" href="/assets/fonts/Bevellier-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
     <link rel="stylesheet" href="/assets/css/tokens.css" />
     <link rel="stylesheet" href="/assets/css/typography.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/home.css" />
+    <script src="/assets/js/main.js" defer></script>
   </head>
   <body>
-    <main class="container" style="padding-block: var(--spacing-section-lg);">
-      <p class="eyebrow">En construcción</p>
-      <h1 class="display-hero">
-        Soy Lili Rubio y diseño productos digitales para que entenderlos
-        <span class="highlight nowrap">cueste menos</span>.
-      </h1>
-      <p class="body-lead" style="margin-top: var(--spacing-stack-lg);">UX/UI y diseño de producto. Me gusta ordenar cosas. En serio.</p>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <nav class="container nav-bar" aria-label="Principal">
+        <a class="nav-bar__logo" href="/" aria-label="Lili Rubio · Inicio">
+          <svg viewBox="0 0 44 48" aria-hidden="true"><rect width="12" height="48" rx="4.8" fill="currentColor"/><rect x="16.8" width="12" height="48" rx="4.8" fill="currentColor"/><rect x="43.2" width="12" height="26.4" rx="4.8" transform="rotate(90 43.2 0)" fill="currentColor"/></svg>
+        </a>
+        <ul class="nav-bar__items">
+          <li><a class="nav-item" href="/#trabajo">Trabajo</a></li>
+          <li><a class="nav-item" href="/sobre-mi">Sobre mí</a></li>
+          <li><a class="nav-item" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="section section--frame hero" aria-labelledby="hero-titulo">
+        <div class="container hero__content">
+          <div class="hero__text">
+            <p class="body-sm hero__location">En Sevilla · presencial, híbrido o remoto</p>
+            <h1 id="hero-titulo" class="display-hero">Soy Lili Rubio y diseño productos digitales para que entenderlos <span class="highlight nowrap">cueste menos</span>.</h1>
+            <p class="body-lead hero__lead">UX/UI y diseño de producto. Me gusta ordenar cosas. En serio.</p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#trabajo">
+                Ver trabajo
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg>
+              </a>
+              <a class="button button--secondary" href="/assets/cv/lili-rubio-cv.pdf" download>Descargar CV</a>
+            </div>
+          </div>
+          <!-- Visual del hero (artboard B5): pendiente de integrar -->
+          <div class="hero__visual label-md" aria-hidden="true">Visual del hero · B5</div>
+        </div>
+      </section>
+
+      <section id="trabajo" class="section" aria-labelledby="trabajo-titulo">
+        <div class="container work">
+          <div class="section-heading">
+            <p class="eyebrow">Trabajo</p>
+            <h2 id="trabajo-titulo" class="h2">Proyecto destacado</h2>
+          </div>
+
+          <article class="project-card">
+            <div class="project-card__content">
+              <div class="project-card__heading">
+                <p class="eyebrow project-card__eyebrow">Propuesta de rediseño · NextCaddy</p>
+                <h3 class="h3">Arquitectura de información para una plataforma de golf con mucho que contar</h3>
+              </div>
+              <p class="body-md project-card__summary">Rediseñé la web pública de NextCaddy para hacer más fácil <strong>encontrar un torneo, entender su estado e inscribirse.</strong></p>
+              <p class="body-sm project-card__meta">UX/UI Designer · Green Slope</p>
+              <ul class="chip-list" aria-label="Áreas del proyecto">
+                <li class="chip">Arquitectura de información</li>
+                <li class="chip">Flujos</li>
+                <li class="chip">Design system</li>
+                <li class="chip">Responsive</li>
+              </ul>
+              <a class="button button--primary" href="/trabajo/nextcaddy">
+                Ver caso completo
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.875 12c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33h15.285l-4.08-4.08a1.125 1.125 0 0 1 1.59-1.59l6 6a1.125 1.125 0 0 1 0 1.59l-6 6a1.125 1.125 0 0 1-1.59-1.59l4.08-4.08H3c-.298 0-.585-.119-.795-.33A1.125 1.125 0 0 1 1.875 12Z"/></svg>
+              </a>
+            </div>
+            <div class="project-card__media browser-frame" aria-hidden="true">
+              <div class="browser-frame__bar"><span></span><span></span><span></span></div>
+              <div class="browser-frame__screen">
+                <!-- Captura del listado de torneos: pendiente de exportar desde Figma -->
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--frame" aria-labelledby="sobre-mi-titulo">
+        <div class="container about-teaser">
+          <div class="about-teaser__heading">
+            <p class="eyebrow eyebrow--muted">Sobre mí</p>
+            <h2 id="sobre-mi-titulo" class="h2">Junior en UX/UI.<br />No tan junior entendiendo a personas.</h2>
+          </div>
+          <div class="about-teaser__text">
+            <p class="body-md">Antes de dedicarme profesionalmente al diseño, pasé más de cinco años dirigiendo un departamento de recursos humanos. De ahí me llevo habilidades que sigo usando: escuchar, equilibrar necesidades y adaptar procesos.</p>
+            <a class="button button--secondary" href="/sobre-mi">
+              Más sobre mí
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.875 12c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33h15.285l-4.08-4.08a1.125 1.125 0 0 1 1.59-1.59l6 6a1.125 1.125 0 0 1 0 1.59l-6 6a1.125 1.125 0 0 1-1.59-1.59l4.08-4.08H3c-.298 0-.585-.119-.795-.33A1.125 1.125 0 0 1 1.875 12Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer id="contacto" class="site-footer">
+      <div class="container footer">
+        <h2 class="h2 footer__title">Disponible para una charla.</h2>
+        <div class="footer__side">
+          <div class="footer__contact">
+            <a class="contact-button" href="mailto:lilirubio.design@gmail.com" data-copy="lilirubio.design@gmail.com">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 6h13.5c.375 0 .728.09 1.038.254L13.125 11.25a1.875 1.875 0 0 1-2.25 0L4.212 6.254C4.522 6.09 4.877 6 5.25 6Zm-2.249 2.157L3 8.25v7.5A2.25 2.25 0 0 0 5.25 18h13.5A2.25 2.25 0 0 0 21 15.75v-7.5l-.002-.093-6.523 4.893a4.125 4.125 0 0 1-4.95 0L3.001 8.157ZM.75 8.25a4.5 4.5 0 0 1 4.5-4.5h13.5a4.5 4.5 0 0 1 4.5 4.5v7.5a4.5 4.5 0 0 1-4.5 4.5H5.25a4.5 4.5 0 0 1-4.5-4.5v-7.5Z"/></svg>
+              <span>lilirubio.design@gmail.com</span>
+            </a>
+            <a class="icon-button" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de Lili Rubio (se abre en otra pestaña)">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.875 9.525a3.375 3.375 0 0 1 3.375 3.375v3.6a1.125 1.125 0 0 1-2.25 0v-3.6a1.125 1.125 0 0 0-2.25 0v3.6a1.125 1.125 0 0 1-2.25 0v-5.625a1.125 1.125 0 0 1 1.75-.936 3.36 3.36 0 0 1 1.625-.414Zm-5.994.225c.62 0 1.125.504 1.125 1.125V16.5a1.125 1.125 0 0 1-2.25 0v-5.625c0-.62.504-1.125 1.125-1.125ZM7.875 6a1.5 1.5 0 1 1 0 3.002A1.5 1.5 0 0 1 7.875 6Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 2.25a4.5 4.5 0 0 1 4.5 4.5v10.5a4.5 4.5 0 0 1-4.269 4.496l-.231.006H6.75l-.231-.006a4.5 4.5 0 0 1-4.263-4.263L2.25 17.25V6.75a4.5 4.5 0 0 1 4.5-4.5h10.5ZM6.75 4.5A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75Z"/></svg>
+            </a>
+          </div>
+          <p class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

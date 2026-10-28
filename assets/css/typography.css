@@ -24,11 +24,9 @@
 
 /* Subrayador verde de palabras clave en titulares */
 .highlight {
-  text-decoration: underline;
-  text-decoration-color: var(--highlight-text);
-  text-decoration-thickness: 0.42em;
-  text-underline-offset: -0.28em;
-  text-decoration-skip-ink: none;
+  background-image: linear-gradient(to bottom, transparent 58%, var(--highlight-text) 58%, var(--highlight-text) 86%, transparent 86%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 /* Evita que una expresión subrayada se parta entre líneas («cueste menos») */
 .nowrap { white-space: nowrap; }
