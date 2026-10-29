@@ -6,6 +6,12 @@
   La mini página usa Space Grotesk y DM Sans para que no parezca una web dentro de la web.
 */
 
+/* Fuentes de la mini página (OFL, alojadas aquí). Recortadas a los caracteres de la ilustración. */
+@font-face { font-family: "Space Grotesk"; src: url("/assets/fonts/SpaceGrotesk-SemiBold.woff") format("woff"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("/assets/fonts/DMSans-Regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("/assets/fonts/DMSans-Medium.woff") format("woff"); font-weight: 500; font-display: swap; }
+
+
 .hv { position: relative; }
 .hv-viewport { position: relative; width: 100%; overflow: hidden; border-radius: 20px; }
 
