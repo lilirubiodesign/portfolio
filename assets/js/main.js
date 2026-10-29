@@ -86,3 +86,25 @@ document.querySelectorAll("[data-hero-board]").forEach((board) => {
   }, { threshold: [0.35] });
   io.observe(board);
 });
+
+// Volver arriba: aparece cuando la portada sale de la pantalla.
+// Al pulsarlo sube al principio (suave, o directo si se pide menos movimiento)
+// y lleva el foco al título de la página, para que el teclado y los lectores de pantalla empiecen desde ahí.
+const backToTop = document.querySelector(".back-to-top");
+if (backToTop) {
+  const cover = document.querySelector("[data-back-to-top-start]") || document.querySelector("main > :first-child");
+  const show = (on) => backToTop.classList.toggle("back-to-top--visible", on);
+  if (cover && "IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => show(!entry.isIntersecting)).observe(cover);
+  } else {
+    const onScroll = () => show(window.scrollY > window.innerHeight);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+  backToTop.addEventListener("click", () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    const title = document.querySelector("h1[tabindex='-1']");
+    if (title) title.focus({ preventScroll: true });
+  });
+}

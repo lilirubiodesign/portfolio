@@ -202,4 +202,9 @@
   --icon-button-on-light-bg-default: var(--bg-frame);
   --icon-button-on-light-bg-hover: var(--bg-subtle);
   --icon-button-on-light-icon: var(--text-primary);
+
+  --back-to-top-bg-default: var(--bg-inverse);
+  --back-to-top-bg-hover: var(--bg-inverse-hover);
+  --back-to-top-icon: var(--text-on-inverse);
+  --back-to-top-focus-ring: var(--border-focus);
 }

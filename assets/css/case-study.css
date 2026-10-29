@@ -349,3 +349,6 @@ strong { font-weight: 600; }
   .cs-annotated--b02 .notes { position: relative; display: block; }
   .cs-annotated--b02 .note { position: absolute; top: var(--note-y); width: 370px; }
 }
+
+/* El título recibe el foco al volver arriba, pero no es un control: sin anillo */
+.cs-cover__title:focus { outline: none; }

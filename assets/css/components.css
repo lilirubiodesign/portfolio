@@ -1,6 +1,6 @@
 /*
   Componentes v1 del portfolio · equivalen a los de Figma (frame «componentes · v1»).
-  button · nav-bar / nav-item · chip · contact-button · icon-button · footer · project-card · browser-frame
+  button · nav-bar / nav-item · chip · contact-button · icon-button · footer · project-card · browser-frame · back-to-top
 */
 
 /* ── Icono base: hereda el color del texto ── */
@@ -90,10 +90,14 @@
   .nav-bar__logo svg { width: 31px; height: 36px; }
   .nav-item { min-height: 0; }
 }
-/* Pantallas muy estrechas: los tres enlaces siguen cabiendo */
-@media (max-width: 359px) {
-  .nav-bar__items { gap: 4px; }
+/* Pantallas estrechas: los tres enlaces caben en una línea, sin partirse */
+.nav-item { white-space: nowrap; }
+@media (max-width: 389px) {
+  .nav-bar__items { gap: 0; }
   .nav-item { padding-inline: 8px; }
+}
+@media (max-width: 339px) {
+  .nav-item { padding-inline: 6px; letter-spacing: 0.03em; }
 }
 
 /* ── chip ── */
@@ -212,4 +216,38 @@
 @media (max-width: 959px) {
   .hero__actions .button,
   .about-intro__actions .button { padding-inline: var(--spacing-inset-md); }
+}
+
+/* ── back-to-top (botón flotante para volver arriba; aparece al pasar la portada) ── */
+.back-to-top {
+  position: fixed;
+  right: var(--space-400);
+  bottom: var(--space-400);
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--corner-radius-full);
+  background: var(--back-to-top-bg-default);
+  color: var(--back-to-top-icon);
+  box-shadow: 0 4px 16px -4px rgb(21 25 30 / 0.22);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s, background-color 0.15s ease;
+}
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s, background-color 0.15s ease;
+}
+.back-to-top:hover { background: var(--back-to-top-bg-hover); }
+.back-to-top:focus-visible { outline: 2px solid var(--back-to-top-focus-ring); outline-offset: 2px; }
+@media (min-width: 960px) {
+  .back-to-top { right: var(--space-500); bottom: var(--space-500); }
 }
