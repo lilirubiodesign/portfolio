@@ -62,9 +62,9 @@ if (lightbox && typeof lightbox.showModal === "function") {
 // Un clic o toque en el tablero (o el botón, con teclado) alterna entre ordenado y desordenado.
 // Con «reducir movimiento», aparece ya ordenado y sin transiciones.
 document.querySelectorAll("[data-hero-board]").forEach((board) => {
-  const label = board.querySelector(".hv-toggle__label");
+  const label = board.querySelector(".hero-visual__toggle-label");
   const set = (on) => {
-    board.classList.toggle("is-on", on);
+    board.classList.toggle("hero-visual__board--sorted", on);
     if (label) label.textContent = on ? "Desordenar" : "Ordenar";
   };
   let timer = null;
@@ -72,7 +72,7 @@ document.querySelectorAll("[data-hero-board]").forEach((board) => {
   board.addEventListener("click", () => {
     touched = true;
     clearTimeout(timer);
-    set(!board.classList.contains("is-on"));
+    set(!board.classList.contains("hero-visual__board--sorted"));
   });
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
