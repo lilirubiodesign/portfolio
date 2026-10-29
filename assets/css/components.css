@@ -183,6 +183,7 @@
 .browser-frame__bar span:nth-child(2) { background: #f2b84b; }
 .browser-frame__bar span:nth-child(3) { background: #7fc07d; }
 .browser-frame__screen { aspect-ratio: 672 / 400; background: var(--bg-frame); }
+.browser-frame__screen picture { display: block; width: 100%; height: 100%; }
 .browser-frame__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
 
 /* ── project-card ── */
