@@ -14,8 +14,18 @@
   ],
   "redirects": [
     {
+      "source": "/trabajo/nextcaddy",
+      "destination": "/proyecto/nextcaddy",
+      "permanent": true
+    },
+    {
       "source": "/trabajo",
-      "destination": "/trabajo/nextcaddy",
+      "destination": "/proyecto/nextcaddy",
+      "permanent": true
+    },
+    {
+      "source": "/proyecto",
+      "destination": "/proyecto/nextcaddy",
       "permanent": false
     }
   ]
