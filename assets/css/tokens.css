@@ -207,4 +207,7 @@
   --back-to-top-bg-hover: var(--bg-inverse-hover);
   --back-to-top-icon: var(--text-on-inverse);
   --back-to-top-focus-ring: var(--border-focus);
+
+  --section-step-icon-default: var(--text-muted);
+  --section-step-icon-hover: var(--text-primary);
 }

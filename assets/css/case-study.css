@@ -47,6 +47,32 @@ strong { font-weight: 600; }
 }
 .cs-band__title { display: flex; flex-direction: column; gap: var(--spacing-stack-xs); }
 .cs-band__kicker { display: flex; align-items: baseline; gap: var(--spacing-inline-md); color: var(--text-primary); }
+
+/* Número y competencia recortados a la altura de las cifras (como el leading trim de Figma),
+   para que las flechas de section-nav queden centradas con ellas.
+   Métricas de Bevellier: ascendente 0,96 · descendente 0,20 · altura de cifras 0,66 (em). */
+.cs-band__kicker-row { display: flex; align-items: center; gap: var(--spacing-inline-xs); }
+.cs-band__number { line-height: 1; margin-block: -0.22em -0.12em; }
+.cs-band__competency { line-height: 1; margin-bottom: -0.135em; }
+
+/* ── section-nav: flechas al bloque anterior/siguiente (componente 11 en Figma) ── */
+.section-nav { display: flex; flex-direction: column; flex: none; width: 32px; height: 64px; }
+.section-nav--first { justify-content: flex-end; }
+.section-nav__step {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--corner-radius-sm);
+  color: var(--section-step-icon-default);
+  transition: color 0.15s ease;
+}
+.section-nav__step svg { width: 12px; height: 12px; fill: currentColor; }
+.section-nav__step:hover { color: var(--section-step-icon-hover); }
+.section-nav__step:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 0; }
+@media (min-width: 960px) {
+  .section-nav__step svg { width: 18px; height: 18px; }
+}
 .cs-band__text { color: var(--text-body); }
 
 /* ── Contenido del bloque ── */

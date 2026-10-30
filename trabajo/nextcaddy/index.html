@@ -6,6 +6,9 @@
     <title>NextCaddy · Arquitectura de información · Lili Rubio</title>
     <meta name="description" content="Propuesta de rediseño de la web pública de NextCaddy: arquitectura de información, estados de interfaz, flujos y design system para encontrar un torneo, entender su estado e inscribirse." />
     <link rel="canonical" href="https://lilirubio.es/trabajo/nextcaddy" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/assets/fonts/Bevellier-Medium.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/assets/css/fonts.css" />
@@ -68,11 +71,14 @@
       </section>
 
       <!-- 01 · Arquitectura de información -->
-      <section class="cs-block" aria-labelledby="b01-titulo">
+      <section class="cs-block" id="bloque-01" aria-labelledby="b01-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">01</span><span class="eyebrow cs-muted">Arquitectura de información</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--first"><a class="section-nav__step" href="#bloque-02" aria-label="Ir al bloque siguiente: 02 · Organización de contenidos"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">01</span><span class="eyebrow cs-muted cs-band__competency">Arquitectura de información</span></p>
+              </div>
               <h2 id="b01-titulo" class="h2">Una web para jugadores, con un negocio detrás</h2>
             </div>
             <p class="body-md cs-band__text">Los clubes y federaciones publican sus torneos desde un backoffice y los jugadores los consultan en la web pública, donde <strong>casi todo vivía en la página de inicio</strong>. Los listados de torneos y clubes ya existían, pero se alcanzaban desde puntos concretos del recorrido; en la propuesta pasan a formar <strong>parte de la navegación principal</strong>.</p>
@@ -123,11 +129,14 @@
       </section>
 
       <!-- 02 · Organización de contenidos -->
-      <section class="cs-block" aria-labelledby="b02-titulo">
+      <section class="cs-block" id="bloque-02" aria-labelledby="b02-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">02</span><span class="eyebrow cs-muted">Organización de contenidos</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--middle"><a class="section-nav__step" href="#bloque-01" aria-label="Ir al bloque anterior: 01 · Arquitectura de información"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 12 12)" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a><a class="section-nav__step" href="#bloque-03" aria-label="Ir al bloque siguiente: 03 · Navegación y filtros"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">02</span><span class="eyebrow cs-muted cs-band__competency">Organización de contenidos</span></p>
+              </div>
               <h2 id="b02-titulo" class="h2">Un Inicio con dos entradas</h2>
             </div>
             <p class="body-md cs-band__text">Inicio concentraba casi todo el contenido. Ahora distingue desde el primer momento entre <strong>quien contrata el servicio y quien juega</strong>, y lleva a cada uno a su recorrido.</p>
@@ -178,11 +187,14 @@
       </section>
 
       <!-- 03 · Navegación y filtros -->
-      <section class="cs-block" aria-labelledby="b03-titulo">
+      <section class="cs-block" id="bloque-03" aria-labelledby="b03-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">03</span><span class="eyebrow cs-muted">Navegación y filtros</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--middle"><a class="section-nav__step" href="#bloque-02" aria-label="Ir al bloque anterior: 02 · Organización de contenidos"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 12 12)" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a><a class="section-nav__step" href="#bloque-04" aria-label="Ir al bloque siguiente: 04 · Estados y reglas"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">03</span><span class="eyebrow cs-muted cs-band__competency">Navegación y filtros</span></p>
+              </div>
               <h2 id="b03-titulo" class="h2">Encontrar un torneo</h2>
             </div>
             <p class="body-md cs-band__text">Un jugador quiere explorar torneos e inscribirse, pero en la web analizada el buscador solo era útil si ya conocía el nombre. En la propuesta, <strong>puede acotar la búsqueda</strong> por fecha, federación y disponibilidad.</p>
@@ -248,11 +260,14 @@
       </section>
 
       <!-- 04 · Estados y reglas -->
-      <section class="cs-block" aria-labelledby="b04-titulo">
+      <section class="cs-block" id="bloque-04" aria-labelledby="b04-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">04</span><span class="eyebrow cs-muted">Estados y reglas</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--middle"><a class="section-nav__step" href="#bloque-03" aria-label="Ir al bloque anterior: 03 · Navegación y filtros"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 12 12)" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a><a class="section-nav__step" href="#bloque-05" aria-label="Ir al bloque siguiente: 05 · Jerarquía de contenidos"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">04</span><span class="eyebrow cs-muted cs-band__competency">Estados y reglas</span></p>
+              </div>
               <h2 id="b04-titulo" class="h2">De datos a estados:<br />la tournament-card</h2>
             </div>
             <p class="body-md cs-band__text">Un torneo combina tres datos que cambian por separado (fase, inscripción y resultados). <strong>Definí ocho estados de interfaz</strong> a partir de esas combinaciones de datos; cuando coinciden varias condiciones, un orden de prioridad determina cuál mostrar.</p>
@@ -322,11 +337,14 @@
       </section>
 
       <!-- 05 · Jerarquía de contenidos -->
-      <section class="cs-block" aria-labelledby="b05-titulo">
+      <section class="cs-block" id="bloque-05" aria-labelledby="b05-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">05</span><span class="eyebrow cs-muted">Jerarquía de contenidos</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--middle"><a class="section-nav__step" href="#bloque-04" aria-label="Ir al bloque anterior: 04 · Estados y reglas"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 12 12)" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a><a class="section-nav__step" href="#bloque-06" aria-label="Ir al bloque siguiente: 06 · Responsive y accesibilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">05</span><span class="eyebrow cs-muted cs-band__competency">Jerarquía de contenidos</span></p>
+              </div>
               <h2 id="b05-titulo" class="h2">Un torneo cambia con el tiempo</h2>
             </div>
             <p class="body-md cs-band__text">La ficha de un torneo tiene que servir antes, durante y después de jugarlo. En la propuesta, la página es la misma y lo que cambia es <strong>qué se prioriza</strong>: la inscripción, los horarios, la clasificación en directo o el resultado final.</p>
@@ -349,11 +367,14 @@
       </section>
 
       <!-- 06 · Responsive y accesibilidad -->
-      <section class="cs-block" aria-labelledby="b06-titulo">
+      <section class="cs-block" id="bloque-06" aria-labelledby="b06-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">06</span><span class="eyebrow cs-muted">Responsive y accesibilidad</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--middle"><a class="section-nav__step" href="#bloque-05" aria-label="Ir al bloque anterior: 05 · Jerarquía de contenidos"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 12 12)" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a><a class="section-nav__step" href="#bloque-07" aria-label="Ir al bloque siguiente: 07 · Flujos e interacción"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">06</span><span class="eyebrow cs-muted cs-band__competency">Responsive y accesibilidad</span></p>
+              </div>
               <h2 id="b06-titulo" class="h2">La misma información en cualquier pantalla</h2>
             </div>
             <p class="body-md cs-band__text">En la web analizada, desktop y móvil no contaban lo mismo. En la propuesta, la ficha se reordena en móvil <strong>sin perder datos</strong> y el estado se entiende sin depender del color. Cada decisión se revisó con WCAG 2.2 AA.</p>
@@ -435,11 +456,14 @@
       </section>
 
       <!-- 07 · Flujos e interacción -->
-      <section class="cs-block" aria-labelledby="b07-titulo">
+      <section class="cs-block" id="bloque-07" aria-labelledby="b07-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">07</span><span class="eyebrow cs-muted">Flujos e interacción</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--middle"><a class="section-nav__step" href="#bloque-06" aria-label="Ir al bloque anterior: 06 · Responsive y accesibilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 12 12)" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a><a class="section-nav__step" href="#bloque-08" aria-label="Ir al bloque siguiente: 08 · Design system"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">07</span><span class="eyebrow cs-muted cs-band__competency">Flujos e interacción</span></p>
+              </div>
               <h2 id="b07-titulo" class="h2">Inscribirse sin sorpresas</h2>
             </div>
             <p class="body-md cs-band__text">Inscribirse pide datos, categoría, tarifa y pago. La propuesta lo ordena en tres pasos y una confirmación, con <strong>un resumen siempre a la vista</strong>: torneo, plazas, cierre e importe.</p>
@@ -462,11 +486,14 @@
       </section>
 
       <!-- 08 · Design system -->
-      <section class="cs-block" aria-labelledby="b08-titulo">
+      <section class="cs-block" id="bloque-08" aria-labelledby="b08-titulo">
         <header class="cs-band">
           <div class="container cs-band__inner">
             <div class="cs-band__title">
-              <p class="cs-band__kicker"><span class="display-hero" aria-hidden="true">08</span><span class="eyebrow cs-muted">Design system</span></p>
+              <div class="cs-band__kicker-row">
+                <div class="section-nav section-nav--last"><a class="section-nav__step" href="#bloque-07" aria-label="Ir al bloque anterior: 07 · Flujos e interacción"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 12 12)" d="M12 1.875c.298 0 .585.119.796.33.21.21.329.497.329.795v15.285l4.08-4.08a1.125 1.125 0 0 1 1.59 1.59l-6 6a1.125 1.125 0 0 1-1.59 0l-6-6a1.125 1.125 0 0 1 1.59-1.59l4.08 4.08V3c0-.298.119-.585.33-.795.21-.211.497-.33.795-.33Z"/></svg></a></div>
+                <p class="cs-band__kicker"><span class="display-hero cs-band__number" aria-hidden="true">08</span><span class="eyebrow cs-muted cs-band__competency">Design system</span></p>
+              </div>
               <h2 id="b08-titulo" class="h2">De la variable al componente</h2>
             </div>
             <p class="body-md cs-band__text">Una propuesta con tantos estados necesita reglas que desarrollo pueda seguir. Construí un design system con variables en tres niveles, componentes con sus estados y una hoja de documentación por pieza.</p>
