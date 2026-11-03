@@ -24,3 +24,15 @@ assets/js/              interacciones (hero, ampliar capturas, copiar correo)
 ```
 python3 -m http.server 8000
 ```
+
+## Buscadores
+
+- Google Search Console: propiedad de dominio `lilirubio.es`, verificada con un registro TXT en Piensa Solutions. **No borrar ese TXT.**
+- Bing Webmaster Tools: importado desde Google Search Console.
+- `sitemap.xml` y `robots.txt` en la raíz.
+
+**Al añadir o cambiar una página** (por ejemplo, un case study nuevo):
+
+1. Añadir su URL al `sitemap.xml` (y actualizar `lastmod` de las que cambien).
+2. Darle `<title>`, `<meta name="description">` y `<link rel="canonical">`, como las demás.
+3. En Google Search Console → Inspección de URLs → pegar la URL → Solicitar indexación. Bing lee el mismo sitemap.
