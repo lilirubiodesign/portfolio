@@ -194,6 +194,7 @@
 
   --footer-bg: var(--bg-inverse-hover);
   --footer-text: var(--text-on-inverse);
+  --footer-text-muted: var(--text-on-inverse-body);
   --footer-padding-y: var(--spacing-section-sm);
 
   --icon-button-on-dark-bg-default: var(--bg-inverse);

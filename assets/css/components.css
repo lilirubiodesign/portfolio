@@ -160,8 +160,11 @@
 }
 .footer__title { color: var(--footer-text); }
 .footer__contact { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-inline-sm); }
+/* Créditos: 32 por encima (24 de gap + 8) */
+.footer__credits { margin-top: var(--spacing-stack-xs); color: var(--footer-text-muted); }
 @media (min-width: 960px) {
-  .footer { flex-direction: row; align-items: center; justify-content: space-between; }
+  .footer { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; row-gap: var(--spacing-stack-xl); }
+  .footer__credits { flex-basis: 100%; margin-top: 0; }
   .footer__side { text-align: right; }
   .copy-status { left: auto; right: 0; }
   .footer__contact { justify-content: flex-end; }
