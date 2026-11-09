@@ -1,4 +1,4 @@
-/* Home · hero, Trabajo y adelanto de Sobre mí (hi-fi `home-desktop` / `home-mobile`) */
+/* Home · hero, Proyecto y adelanto de Sobre mí (hi-fi `home-desktop` / `home-mobile`) */
 
 .section { padding-block: var(--spacing-section-lg); }
 .section--frame { background: var(--bg-frame); }
@@ -32,7 +32,7 @@
   .hero__visual { flex: 0 0 560px; }
 }
 
-/* ── Trabajo ── */
+/* ── Proyecto ── */
 .work { display: flex; flex-direction: column; gap: var(--spacing-section-sm); }
 
 /* ── Adelanto de Sobre mí ── */
